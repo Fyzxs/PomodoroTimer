@@ -5,20 +5,19 @@ namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class TimeLeftTimer : ITimeLeftTimer
     {
-        private readonly TimeInterval _interval;
         private readonly ITimer _update;
         private readonly ITimer _actual;
         private readonly TimeInterval _startTimeInstant;
 
-        public TimeLeftTimer(TimeInterval interval)
+        public TimeLeftTimer(TimeInterval interval) : this(new NowAtFirstAccessUntil(interval), new SingleEventTimer(interval), new HalfSecondRepeatingEventTimer()) { }
+        public TimeLeftTimer(TimeInterval startTimeInstant, ITimer actual, ITimer update)
         {
-            _interval = interval;
-            _startTimeInstant = new NowAtFirstAccessUntil(interval);
+            _startTimeInstant = startTimeInstant;
 
-            _actual = new SingleEventTimer(interval);
+            _actual = actual;
             _actual.Elapsed += Actual_Elapsed;
 
-            _update = new HalfSecondRepeatingEventTimer();
+            _update = update;
             _update.Elapsed += Update_Elapsed;
         }
 
