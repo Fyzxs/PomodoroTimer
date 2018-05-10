@@ -1,9 +1,9 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLibTests.Library.Primitives;
-using PomodoroTimerLibTests.Library.Timers;
+using PomodoroTimerLib.Library.Timers;
 using System;
 using System.Threading;
+using PomodoroTimerLib.Library.Primitives;
 
 namespace PomodoroTimerLibTests
 {
