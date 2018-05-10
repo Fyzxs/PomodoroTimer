@@ -1,4 +1,4 @@
-using PomodoroTimerLibTests.Library.Time;
+using PomodoroTimerLibTests.Library.Primitives;
 using System.Timers;
 
 namespace PomodoroTimerLibTests.Library.Timers
@@ -9,7 +9,7 @@ namespace PomodoroTimerLibTests.Library.Timers
 
         public event TimerElapsedEvent Elapsed;
 
-        public TimerBookEnd(Milliseconds interval, TimerBookEndAutoReset autoReset) : this(new Timer(interval), autoReset) { }
+        public TimerBookEnd(DoubleNumber interval, TimerBookEndAutoReset autoReset) : this(new Timer(interval), autoReset) { }
 
         private TimerBookEnd(Timer timer, TimerBookEndAutoReset autoReset)
         {

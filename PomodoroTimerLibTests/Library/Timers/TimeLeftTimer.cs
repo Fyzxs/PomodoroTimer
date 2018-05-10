@@ -1,3 +1,4 @@
+using PomodoroTimerLibTests.Library.Primitives;
 using PomodoroTimerLibTests.Library.Time;
 using PomodoroTimerLibTests.Library.Time.Instant;
 
@@ -5,12 +6,12 @@ namespace PomodoroTimerLibTests.Library.Timers
 {
     public sealed class TimeLeftTimer : ITimeLeftTimer
     {
-        private readonly Milliseconds _interval;
+        private readonly DoubleNumber _interval;
         private readonly ITimer _update;
         private readonly ITimer _actual;
         private readonly TimeInstant _startTimeInstant;
 
-        public TimeLeftTimer(Milliseconds interval)
+        public TimeLeftTimer(DoubleNumber interval)
         {
             _interval = interval;
             _startTimeInstant = new InstantOfFirstAccess();

@@ -1,3 +1,4 @@
+using PomodoroTimerLibTests.Library.Primitives;
 using System;
 
 namespace PomodoroTimerLibTests.Library.Time.Instant
@@ -5,9 +6,9 @@ namespace PomodoroTimerLibTests.Library.Time.Instant
     internal sealed class AddMilliseconds : TimeInstant
     {
         private readonly TimeInstant _timeInstant;
-        private readonly Milliseconds _milliseconds;
+        private readonly DoubleNumber _milliseconds;
 
-        public AddMilliseconds(TimeInstant timeInstant, Milliseconds milliseconds)
+        public AddMilliseconds(TimeInstant timeInstant, DoubleNumber milliseconds)
         {
             _timeInstant = timeInstant;
             _milliseconds = milliseconds;

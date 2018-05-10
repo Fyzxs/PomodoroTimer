@@ -1,6 +1,6 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLibTests.Library.Time.Interval;
+using PomodoroTimerLibTests.Library.Primitives;
 using PomodoroTimerLibTests.Library.Timers;
 using System;
 using System.Threading;
@@ -19,7 +19,7 @@ namespace PomodoroTimerLibTests
 
             CountdownEvent latch = new CountdownEvent(10);
 
-            ITimer timerBookEnd = new RepeatingEventTimer(new FromSeconds(.5));
+            ITimer timerBookEnd = new RepeatingEventTimer(new DoubleNumberOf(.5));
             timerBookEnd.Elapsed += () => latch.Signal();
             timerBookEnd.Start();
             latch.Wait(11 * 1000).Should().BeTrue();
@@ -34,7 +34,7 @@ namespace PomodoroTimerLibTests
 
             CountdownEvent latch = new CountdownEvent(31);
 
-            ITimeLeftTimer timerBookEnd = new TimeLeftTimer(new FromSeconds(15));
+            ITimeLeftTimer timerBookEnd = new TimeLeftTimer(new DoubleNumberOf(15));
             timerBookEnd.Elapsed += () =>
             {
                 latch.Signal();
