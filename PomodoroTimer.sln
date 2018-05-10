@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceMocks", "Interface
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{275B9749-A6B7-4456-A18C-97D166F6876C}"
 	ProjectSection(SolutionItems) = preProject
+		Fyzxs.IMockResharperPlugin.0.0.4.nupkg = Fyzxs.IMockResharperPlugin.0.0.4.nupkg
 		LICENSE = LICENSE
+		Project.txt = Project.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroTimerLib", "PomodoroTimerLib\PomodoroTimerLib.csproj", "{D6585BE6-30FF-439F-B52C-DB35284292C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PomodoroTimerLib", "PomodoroTimerLib\PomodoroTimerLib.csproj", "{D6585BE6-30FF-439F-B52C-DB35284292C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroTimerLibTests", "PomodoroTimerLibTests\PomodoroTimerLibTests.csproj", "{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PomodoroTimerLibTests", "PomodoroTimerLibTests\PomodoroTimerLibTests.csproj", "{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
