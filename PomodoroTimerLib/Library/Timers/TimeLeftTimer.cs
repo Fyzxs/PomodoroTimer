@@ -1,20 +1,19 @@
-using PomodoroTimerLib.Library.Primitives;
 using PomodoroTimerLib.Library.Time;
-using PomodoroTimerLib.Library.Time.Instant;
+using PomodoroTimerLib.Library.Time.Interval;
 
 namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class TimeLeftTimer : ITimeLeftTimer
     {
-        private readonly DoubleNumber _interval;
+        private readonly TimeInterval _interval;
         private readonly ITimer _update;
         private readonly ITimer _actual;
-        private readonly TimeInstant _startTimeInstant;
+        private readonly TimeInterval _startTimeInstant;
 
-        public TimeLeftTimer(DoubleNumber interval)
+        public TimeLeftTimer(TimeInterval interval)
         {
             _interval = interval;
-            _startTimeInstant = new InstantOfFirstAccess();
+            _startTimeInstant = new NowAtFirstAccessUntil(interval);
 
             _actual = new SingleEventTimer(interval);
             _actual.Elapsed += Actual_Elapsed;
@@ -23,14 +22,7 @@ namespace PomodoroTimerLib.Library.Timers
             _update.Elapsed += Update_Elapsed;
         }
 
-        private void Update_Elapsed()
-        {
-            //Todo: TimeUntilFuture for these two linse
-            TimeInstant futureInstant = _startTimeInstant.AddMilliseconds(_interval);
-            TimeInterval timeInterval = futureInstant.Until();
-
-            TimeLeft?.Invoke(timeInterval);
-        }
+        private void Update_Elapsed() => TimeLeft?.Invoke(_startTimeInstant);
 
         private void Actual_Elapsed()
         {

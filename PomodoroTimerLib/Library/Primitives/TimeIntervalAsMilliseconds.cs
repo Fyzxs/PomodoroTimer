@@ -9,6 +9,6 @@ namespace PomodoroTimerLib.Library.Primitives
         private readonly TimeInterval _timeInterval;
 
         public TimeIntervalAsMilliseconds(TimeInterval timeInterval) => _timeInterval = timeInterval;
-        protected override double Value() => ((TimeSpan)_timeInterval).Milliseconds;
+        protected override double Value() => ((TimeSpan)_timeInterval).TotalMilliseconds;
     }
 }

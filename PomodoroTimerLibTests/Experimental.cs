@@ -1,9 +1,9 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PomodoroTimerLib.Library.Time;
 using PomodoroTimerLib.Library.Timers;
 using System;
 using System.Threading;
-using PomodoroTimerLib.Library.Primitives;
 
 namespace PomodoroTimerLibTests
 {
@@ -19,7 +19,7 @@ namespace PomodoroTimerLibTests
 
             CountdownEvent latch = new CountdownEvent(10);
 
-            ITimer timerBookEnd = new RepeatingEventTimer(new DoubleNumberOf(.5));
+            ITimer timerBookEnd = new RepeatingEventTimer(new Milliseconds(500));
             timerBookEnd.Elapsed += () => latch.Signal();
             timerBookEnd.Start();
             latch.Wait(11 * 1000).Should().BeTrue();
@@ -34,7 +34,7 @@ namespace PomodoroTimerLibTests
 
             CountdownEvent latch = new CountdownEvent(31);
 
-            ITimeLeftTimer timerBookEnd = new TimeLeftTimer(new DoubleNumberOf(15));
+            ITimeLeftTimer timerBookEnd = new TimeLeftTimer(new Seconds(15));
             timerBookEnd.Elapsed += () =>
             {
                 latch.Signal();
@@ -43,7 +43,8 @@ namespace PomodoroTimerLibTests
             timerBookEnd.TimeLeft += end =>
             {
                 latch.Signal();
-                Console.WriteLine(end.ToString(@"mm\:ss"));
+                //TODO: probaly need a "format" method to get this kinda form
+                Console.WriteLine(((TimeSpan)end).ToString(@"mm\:ss"));
                 Console.WriteLine("Remaining: " + latch.CurrentCount);
             };
             timerBookEnd.Start();

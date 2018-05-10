@@ -1,9 +1,9 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Time;
 
 namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class SingleEventTimer : EventTimer
     {
-        public SingleEventTimer(DoubleNumber interval) : base(interval, (TimerBookEndAutoReset)TimerBookEndAutoReset.Single) { }
+        public SingleEventTimer(TimeInterval interval) : base(interval, TimerBookEndAutoReset.Single) { }
     }
 }

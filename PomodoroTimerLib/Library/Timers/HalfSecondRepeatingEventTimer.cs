@@ -1,11 +1,10 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Time;
 
 namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class HalfSecondRepeatingEventTimer : EventTimer
     {
-        //TODO: I don't like how the 500 is arbitrary...
-        private static readonly DoubleNumber RepeatIntervalMilliseconds = new DoubleNumberOf(500d);
-        public HalfSecondRepeatingEventTimer() : base((DoubleNumber)RepeatIntervalMilliseconds, (TimerBookEndAutoReset)TimerBookEndAutoReset.Repeat) { }
+        private static readonly TimeInterval RepeatIntervalMilliseconds = new Milliseconds(500);
+        public HalfSecondRepeatingEventTimer() : base(RepeatIntervalMilliseconds, (TimerBookEndAutoReset)TimerBookEndAutoReset.Repeat) { }
     }
 }

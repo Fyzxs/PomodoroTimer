@@ -1,11 +1,11 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Time;
 
 namespace PomodoroTimerLib.Library.Timers
 {
     public abstract class EventTimer : ITimer
     {
         private readonly ITimerBookEnd _timerBookEnd;
-        protected EventTimer(DoubleNumber interval, TimerBookEndAutoReset autoReset) : this(new TimerBookEnd(interval, autoReset)) { }
+        protected EventTimer(TimeInterval interval, TimerBookEndAutoReset autoReset) : this(new TimerBookEnd(interval, autoReset)) { }
         private EventTimer(ITimerBookEnd timerBookEnd)
         {
             _timerBookEnd = timerBookEnd;
