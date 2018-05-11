@@ -12,6 +12,6 @@ namespace PomodoroTimerLib.Library.Time.Instant
             _timeInstant = timeInstant;
             _interval = interval;
         }
-        protected override DateTime Value() => ((DateTime)_timeInstant).Add((TimeSpan)_interval);
+        protected override DateTime Value() => ((DateTime)_timeInstant).Add(_interval);
     }
 }

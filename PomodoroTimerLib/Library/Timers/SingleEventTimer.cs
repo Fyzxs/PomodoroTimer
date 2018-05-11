@@ -4,6 +4,6 @@ namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class SingleEventTimer : EventTimer
     {
-        public SingleEventTimer(TimeInterval interval) : base(interval, TimerBookEndAutoReset.Single) { }
+        public SingleEventTimer(TimeInterval interval) : base(interval, TimerAutoReset.Single) { }
     }
 }

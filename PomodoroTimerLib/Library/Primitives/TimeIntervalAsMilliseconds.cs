@@ -3,7 +3,7 @@ using System;
 
 namespace PomodoroTimerLib.Library.Primitives
 {
-    public sealed class TimeIntervalAsMilliseconds : DoubleNumber
+    public sealed class TimeIntervalAsMilliseconds : Number
     {
         private readonly TimeInterval _timeInterval;
 

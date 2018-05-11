@@ -5,7 +5,7 @@ namespace PomodoroTimerLib.Library.Time.Instant
     internal sealed class Now : TimeInstant
     {
         private readonly DateTime _now;
-        public Now() : this((DateTime)DateTime.Now) { }
+        public Now() : this(DateTime.Now) { }
 
         private Now(DateTime now) => _now = now;
 

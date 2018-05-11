@@ -5,8 +5,8 @@ namespace PomodoroTimerLib.Library.Timers
     public abstract class EventTimer : ITimer
     {
         private readonly ITimerBookEnd _timerBookEnd;
-        protected EventTimer(TimeInterval interval, TimerBookEndAutoReset autoReset) : this(new TimerBookEnd(interval, autoReset)) { }
-        private EventTimer(ITimerBookEnd timerBookEnd)
+        protected EventTimer(TimeInterval interval, TimerAutoReset autoReset) : this(new TimerBookEnd(interval, autoReset)) { }
+        protected EventTimer(ITimerBookEnd timerBookEnd)
         {
             _timerBookEnd = timerBookEnd;
             _timerBookEnd.Elapsed += OnElapsed;

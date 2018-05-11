@@ -3,6 +3,8 @@ using PomodoroTimerLib.Library.Time.Interval;
 
 namespace PomodoroTimerLib.Library.Timers
 {
+    //TODO: Potential "DualTimer" class with actual & update
+    //TODO: Rename to TimeLeftSingleEventTimer?
     public sealed class TimeLeftTimer : ITimeLeftTimer
     {
         private readonly ITimer _update;
@@ -10,7 +12,7 @@ namespace PomodoroTimerLib.Library.Timers
         private readonly TimeInterval _startTimeInstant;
 
         public TimeLeftTimer(TimeInterval interval) : this(new NowAtFirstAccessUntil(interval), new SingleEventTimer(interval), new HalfSecondRepeatingEventTimer()) { }
-        public TimeLeftTimer(TimeInterval startTimeInstant, ITimer actual, ITimer update)
+        private TimeLeftTimer(TimeInterval startTimeInstant, ITimer actual, ITimer update)
         {
             _startTimeInstant = startTimeInstant;
 
@@ -42,5 +44,15 @@ namespace PomodoroTimerLib.Library.Timers
             _update.Close();
             _actual.Close();
         }
+    }
+    public interface ITimeLeftTimer : ITimer
+    {
+        event TimerLeftEvent TimeLeft;
+    }
+    public interface ITimer
+    {
+        event TimerElapsedEvent Elapsed;
+        void Start();
+        void Close();
     }
 }

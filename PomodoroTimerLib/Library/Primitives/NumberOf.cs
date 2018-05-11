@@ -1,9 +1,9 @@
 namespace PomodoroTimerLib.Library.Primitives {
-    public sealed class DoubleNumberOf : DoubleNumber
+    public sealed class NumberOf : Number
     {
         private readonly double _origin;
 
-        public DoubleNumberOf(double origin) => _origin = origin;
+        public NumberOf(double origin) => _origin = origin;
 
         protected override double Value() => _origin;
     }

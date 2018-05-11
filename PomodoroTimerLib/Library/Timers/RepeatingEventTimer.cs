@@ -4,6 +4,6 @@ namespace PomodoroTimerLib.Library.Timers
 {
     public sealed class RepeatingEventTimer : EventTimer
     {
-        public RepeatingEventTimer(TimeInterval interval) : base(interval, TimerBookEndAutoReset.Repeat) { }
+        public RepeatingEventTimer(TimeInterval interval) : base(interval, TimerAutoReset.Repeat) { }
     }
 }

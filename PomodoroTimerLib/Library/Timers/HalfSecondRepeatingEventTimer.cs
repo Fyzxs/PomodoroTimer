@@ -5,6 +5,8 @@ namespace PomodoroTimerLib.Library.Timers
     public sealed class HalfSecondRepeatingEventTimer : EventTimer
     {
         private static readonly TimeInterval RepeatIntervalMilliseconds = new Milliseconds(500);
-        public HalfSecondRepeatingEventTimer() : base(RepeatIntervalMilliseconds, (TimerBookEndAutoReset)TimerBookEndAutoReset.Repeat) { }
+        private static readonly TimerAutoReset TimerAutoReset = TimerAutoReset.Repeat;
+
+        public HalfSecondRepeatingEventTimer() : base(RepeatIntervalMilliseconds, TimerAutoReset) { }
     }
 }

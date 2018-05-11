@@ -7,6 +7,6 @@ namespace PomodoroTimerLib.Library.Time
     {
         public static implicit operator TimeSpan(TimeInterval origin) => origin.Value();
         protected abstract TimeSpan Value();
-        public DoubleNumber Milliseconds() => new TimeIntervalAsMilliseconds(this);
+        public Number Milliseconds() => new TimeIntervalAsMilliseconds(this);
     }
 }
