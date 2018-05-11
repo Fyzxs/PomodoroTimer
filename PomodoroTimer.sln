@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PomodoroTimerLib", "Pomodor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PomodoroTimerLibTests", "PomodoroTimerLibTests\PomodoroTimerLibTests.csproj", "{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePomodoro", "ConsolePomodoro\ConsolePomodoro.csproj", "{B3D17374-6852-4C26-946E-298EEC2B6106}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1704CB0-BDD6-465C-A869-C8491ADAD5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D17374-6852-4C26-946E-298EEC2B6106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D17374-6852-4C26-946E-298EEC2B6106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D17374-6852-4C26-946E-298EEC2B6106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D17374-6852-4C26-946E-298EEC2B6106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
