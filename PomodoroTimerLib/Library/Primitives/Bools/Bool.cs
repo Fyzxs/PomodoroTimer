@@ -1,4 +1,4 @@
-namespace PomodoroTimerLib.Library.Primitives
+namespace PomodoroTimerLib.Library.Primitives.Bools
 {
     public abstract class Bool
     {

@@ -12,6 +12,6 @@ namespace PomodoroTimerLib.Library.Time
 
         public Number Milliseconds() => new TimeIntervalAsMilliseconds(this);
 
-        public TimeInterval Multiply(Number factor) => new TimeIntervalProduct(this, factor);
+        public TimeInterval Multiply(Number factor) => new ProductOfTimeIntervals(this, factor);
     }
 }

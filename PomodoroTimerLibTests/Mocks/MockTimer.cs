@@ -1,5 +1,6 @@
 using InterfaceMocks;
 using PomodoroTimerLib.Library.Timers;
+using PomodoroTimerLib.Library.Timers.Delegates;
 using System;
 
 namespace PomodoroTimerLibTests.Mocks

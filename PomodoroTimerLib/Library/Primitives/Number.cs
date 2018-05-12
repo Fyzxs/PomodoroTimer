@@ -1,3 +1,4 @@
+using PomodoroTimerLib.Library.Primitives.Bools;
 using PomodoroTimerLib.Library.Timers;
 
 namespace PomodoroTimerLib.Library.Primitives

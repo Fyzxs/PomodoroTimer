@@ -15,7 +15,7 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void ShouldRepeatEveryInterval()
         {
             //Arrange
-            RepeatingEventTimer subject = new RepeatingEventTimer(new Milliseconds(10));
+            RepeatingTimer subject = new RepeatingTimer(new Milliseconds(10));
             List<TimeSpan> times = new List<TimeSpan>();
             DateTime now = DateTime.Now;
 

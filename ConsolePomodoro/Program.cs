@@ -33,7 +33,7 @@ namespace ConsolePomodoro
             Console.WriteLine("Take a break!");
             Console.WriteLine("Hit Enter to start your break:");
             Console.ReadLine();
-            IRepeatSpecifiedEventTimer timer = new RepeatSpecifiedEventTimer(new Seconds(5), new Milliseconds(500));
+            IRepeatSpecifiedTimesTimer timer = new RepeatSpecifiedTimesTimer(new Seconds(5), new Milliseconds(500));
             timer.RepeatSpecified += (duration, elapsed, more) =>
             {
                 if (more)
@@ -53,18 +53,18 @@ namespace ConsolePomodoro
             Console.WriteLine("Time for Pomodoro!");
             Console.WriteLine("Hit Enter to start your session:");
             Console.ReadLine();
-            TimeLeftSingleEventTimer singleEventTimer = new TimeLeftSingleEventTimer(new Seconds(2));
-            singleEventTimer.TimeLeft += (end, repeating) =>
+            IRepeatSpecifiedTimesTimer timer = new RepeatSpecifiedTimesTimer(new Seconds(5), new Milliseconds(500));
+            timer.RepeatSpecified += (duration, elapsed, more) =>
             {
-                if (repeating)
+                if (more)
                 {
-                    PrintRemainingSession(end);
+                    PrintRemainingSession(((TimeSpan)duration).Subtract(elapsed));
                     return;
                 }
-                singleEventTimer.Close();
+                timer.Close();
                 RunBreak();
             };
-            singleEventTimer.Start();
+            timer.Start();
         }
 
         private static void PrintRemainingSession(TimeSpan timespan)

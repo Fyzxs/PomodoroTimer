@@ -1,3 +1,5 @@
+using PomodoroTimerLib.Library.Primitives.Bools;
+
 namespace PomodoroTimerLib.Library.Primitives {
     internal sealed class NumberLessThan : Bool
     {

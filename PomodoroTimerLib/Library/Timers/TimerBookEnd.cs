@@ -1,4 +1,5 @@
 using PomodoroTimerLib.Library.Time;
+using PomodoroTimerLib.Library.Timers.Delegates;
 using System.Timers;
 
 namespace PomodoroTimerLib.Library.Timers

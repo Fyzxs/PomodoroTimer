@@ -1,27 +1,24 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library.Time;
-using PomodoroTimerLib.Library.Time.Instant;
 using PomodoroTimerLib.Library.Time.Interval;
 using System;
 
 namespace PomodoroTimerLibTests.Library.Time.Interval
 {
     [TestClass]
-    public class NowUntilTests
+    public class SecondsTests
     {
         [TestMethod, TestCategory("unit")]
-        public void ShouldBeNowPlusInterval()
+        public void ShouldBeTimeSpanOfProvided()
         {
             //Arrange
-            TimeInstant timeInstant = new Now().Add(new Seconds(10));
-            NowUntil subject = new NowUntil(timeInstant);
+            Seconds subject = new Seconds(500);
 
             //Act
             TimeSpan actual = subject;
 
             //Assert
-            actual.Should().BeCloseTo(new TimeSpan(0, 0, 0, 10), 2);
+            actual.Should().Be(TimeSpan.FromSeconds(500));
         }
     }
 }

@@ -14,7 +14,7 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void ShouldRepeatEvery500Ms()
         {
             //Arrange
-            HalfSecondRepeatingEventTimer subject = new HalfSecondRepeatingEventTimer();
+            HalfSecondRepeatingTimer subject = new HalfSecondRepeatingTimer();
             List<TimeSpan> times = new List<TimeSpan>();
             DateTime now = DateTime.Now;
             subject.Elapsed += () =>

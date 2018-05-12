@@ -1,10 +1,12 @@
+using PomodoroTimerLib.Library.Timers.Delegates;
+
 namespace PomodoroTimerLib.Library.Timers
 {
-    public abstract class DelegatingEventTimer : ITimer
+    public abstract class DelegatingTimer : ITimer
     {
         private readonly ITimerBookEnd _eventTimer;
 
-        protected DelegatingEventTimer(ITimerBookEnd eventTimer)
+        protected DelegatingTimer(ITimerBookEnd eventTimer)
         {
             _eventTimer = eventTimer;
             _eventTimer.Elapsed += EventTimerOnElapsed;

@@ -1,5 +1,6 @@
-namespace PomodoroTimerLib.Library.Primitives {
-    public sealed class BoolOf : Bool
+namespace PomodoroTimerLib.Library.Primitives.Bools
+{
+    internal sealed class BoolOf : Bool
     {
         private readonly bool _origin;
 

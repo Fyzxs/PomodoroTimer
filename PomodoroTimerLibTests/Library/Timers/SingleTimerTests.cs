@@ -17,7 +17,7 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void ShouldTriggerOnceAfterInterval()
         {
             //Arrange
-            SingleEventTimer subject = new SingleEventTimer(new Milliseconds(4));
+            SingleTimer subject = new SingleTimer(new Milliseconds(4));
             CountdownEvent latch = new CountdownEvent(1);
             subject.Elapsed += () =>
             {
@@ -26,9 +26,9 @@ namespace PomodoroTimerLibTests.Library.Timers
 
             //Act
             subject.Start();
-            DateTime startTime = DateTime.Now;
 
             //Assert
+            DateTime startTime = DateTime.Now;
             latch.Wait(20).Should().BeTrue();
             TimeSpan timeSpan = DateTime.Now.Subtract(startTime);
             timeSpan.Should().BeCloseTo(new TimeSpan(0, 0, 0, 0, 6), because: "Actual TimeSpan: " + timeSpan.TotalMilliseconds);

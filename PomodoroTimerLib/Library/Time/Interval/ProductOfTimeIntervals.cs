@@ -1,13 +1,14 @@
-using System;
 using PomodoroTimerLib.Library.Primitives;
+using System;
 
-namespace PomodoroTimerLib.Library.Time.Interval {
-    internal class TimeIntervalProduct : TimeInterval
+namespace PomodoroTimerLib.Library.Time.Interval
+{
+    internal class ProductOfTimeIntervals : TimeInterval
     {
         private readonly TimeInterval _multiplicand;
         private readonly Number _multiplier;
 
-        public TimeIntervalProduct(TimeInterval multiplicand, Number multiplier)
+        public ProductOfTimeIntervals(TimeInterval multiplicand, Number multiplier)
         {
             _multiplicand = multiplicand;
             _multiplier = multiplier;

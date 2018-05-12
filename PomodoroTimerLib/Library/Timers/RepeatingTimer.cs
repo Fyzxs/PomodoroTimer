@@ -3,13 +3,13 @@ using PomodoroTimerLib.Library.Time;
 
 namespace PomodoroTimerLib.Library.Timers
 {
-    public sealed class RepeatingEventTimer : DelegatingEventTimer, IRepeatingEventTimer
+    public sealed class RepeatingTimer : DelegatingTimer, IRepeatingEventTimer
     {
         private readonly ICounter _counter;
 
-        public RepeatingEventTimer(TimeInterval interval) : this(new TimerBookEnd(interval, TimerAutoReset.Repeat), new Counter()) { }
+        public RepeatingTimer(TimeInterval interval) : this(new TimerBookEnd(interval, TimerAutoReset.Repeat), new Counter()) { }
 
-        public RepeatingEventTimer(ITimerBookEnd eventTimer, ICounter counter) : base(eventTimer)
+        private RepeatingTimer(ITimerBookEnd eventTimer, ICounter counter) : base(eventTimer)
         {
             eventTimer.Elapsed += EventTimerOnElapsed;
             _counter = counter;
