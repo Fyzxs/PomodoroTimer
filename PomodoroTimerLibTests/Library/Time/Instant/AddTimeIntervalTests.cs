@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Time;
 using PomodoroTimerLib.Library.Time.Instant;
+using PomodoroTimerLib.Library.Time.Interval;
 using System;
 
 namespace PomodoroTimerLibTests.Library.Time.Instant

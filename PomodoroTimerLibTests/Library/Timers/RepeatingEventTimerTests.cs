@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library.Time;
+using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using System;
 using System.Collections.Generic;

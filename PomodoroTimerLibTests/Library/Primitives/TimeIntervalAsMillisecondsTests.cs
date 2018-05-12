@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Primitives;
-using PomodoroTimerLib.Library.Time;
+using PomodoroTimerLib.Library.Time.Interval;
 
 namespace PomodoroTimerLibTests.Library.Primitives
 {

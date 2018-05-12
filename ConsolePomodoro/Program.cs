@@ -1,4 +1,4 @@
-﻿using PomodoroTimerLib.Library.Time;
+﻿using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using System;
 using System.Threading;
@@ -33,10 +33,14 @@ namespace ConsolePomodoro
             Console.WriteLine("Take a break!");
             Console.WriteLine("Hit Enter to start your break:");
             Console.ReadLine();
-            TimeLeftTimer timer = new TimeLeftTimer(new Seconds(2));
-            timer.TimeLeft += end => PrintRemainingBreak(end);
-            timer.Elapsed += () =>
+            IRepeatSpecifiedEventTimer timer = new RepeatSpecifiedEventTimer(new Seconds(5), new Milliseconds(500));
+            timer.RepeatSpecified += (duration, elapsed, more) =>
             {
+                if (more)
+                {
+                    PrintRemainingBreak(((TimeSpan)duration).Subtract(elapsed));
+                    return;
+                }
                 timer.Close();
                 WaitHandle.Set();
             };
@@ -49,14 +53,18 @@ namespace ConsolePomodoro
             Console.WriteLine("Time for Pomodoro!");
             Console.WriteLine("Hit Enter to start your session:");
             Console.ReadLine();
-            TimeLeftTimer timer = new TimeLeftTimer(new Seconds(2));
-            timer.TimeLeft += end => PrintRemainingSession(end);
-            timer.Elapsed += () =>
+            TimeLeftSingleEventTimer singleEventTimer = new TimeLeftSingleEventTimer(new Seconds(2));
+            singleEventTimer.TimeLeft += (end, repeating) =>
             {
-                timer.Close();
+                if (repeating)
+                {
+                    PrintRemainingSession(end);
+                    return;
+                }
+                singleEventTimer.Close();
                 RunBreak();
             };
-            timer.Start();
+            singleEventTimer.Start();
         }
 
         private static void PrintRemainingSession(TimeSpan timespan)

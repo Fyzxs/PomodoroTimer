@@ -2,6 +2,7 @@
 using InterfaceMocks.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Time;
+using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using PomodoroTimerLibTests.Mocks;
 using System;
@@ -11,7 +12,7 @@ using System.Threading;
 namespace PomodoroTimerLibTests.Library.Timers
 {
     [TestClass]
-    public class TimeLeftTimerTests
+    public class TimeLeftSingleEventTimerTests
     {
         [TestMethod, TestCategory("unit")]
         public void ShouldStartTimersGivenStart()
@@ -20,7 +21,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             MockTimer mockUpdateTimer = new MockTimer.Builder().Start().Build();
             MockTimer mockActualTimer = new MockTimer.Builder().Start().Build();
             TimeInterval interval = new Milliseconds(10);
-            TimeLeftTimer subject = new PrivateCtor<TimeLeftTimer>(interval, mockActualTimer, mockUpdateTimer);
+            TimeLeftSingleEventTimer subject = new PrivateCtor<TimeLeftSingleEventTimer>(interval, mockActualTimer, mockUpdateTimer);
 
             //Act
             subject.Start();
@@ -37,7 +38,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             MockTimer mockUpdateTimer = new MockTimer.Builder().Close().Build();
             MockTimer mockActualTimer = new MockTimer.Builder().Close().Build();
             TimeInterval interval = new Milliseconds(10);
-            TimeLeftTimer subject = new PrivateCtor<TimeLeftTimer>(interval, mockActualTimer, mockUpdateTimer);
+            TimeLeftSingleEventTimer subject = new PrivateCtor<TimeLeftSingleEventTimer>(interval, mockActualTimer, mockUpdateTimer);
 
             //Act
             subject.Close();
@@ -54,7 +55,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             MockTimer mockUpdateTimer = new MockTimer.Builder().Build();
             MockTimer mockActualTimer = new MockTimer.Builder().Build();
             TimeInterval interval = new Seconds(10);
-            TimeLeftTimer subject = new PrivateCtor<TimeLeftTimer>(interval, mockActualTimer, mockUpdateTimer);
+            TimeLeftSingleEventTimer subject = new PrivateCtor<TimeLeftSingleEventTimer>(interval, mockActualTimer, mockUpdateTimer);
             List<TimeInterval> intervals = new List<TimeInterval>();
             CountdownEvent latch = new CountdownEvent(1);
             subject.TimeLeft += end =>
@@ -78,7 +79,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             MockTimer mockUpdateTimer = new MockTimer.Builder().Close().Build();
             MockTimer mockActualTimer = new MockTimer.Builder().Close().Build();
             TimeInterval interval = new Seconds(10);
-            TimeLeftTimer subject = new PrivateCtor<TimeLeftTimer>(interval, mockActualTimer, mockUpdateTimer);
+            TimeLeftSingleEventTimer subject = new PrivateCtor<TimeLeftSingleEventTimer>(interval, mockActualTimer, mockUpdateTimer);
             CountdownEvent latch = new CountdownEvent(1);
             subject.Elapsed += () => latch.Signal();
 

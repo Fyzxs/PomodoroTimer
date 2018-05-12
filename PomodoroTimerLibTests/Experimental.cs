@@ -1,6 +1,6 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library.Time;
+using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using System;
 using System.Threading;
@@ -34,7 +34,7 @@ namespace PomodoroTimerLibTests
 
             CountdownEvent latch = new CountdownEvent(31);
 
-            ITimeLeftTimer timerBookEnd = new TimeLeftTimer(new Seconds(15));
+            ITimeLeftTimer timerBookEnd = new TimeLeftSingleEventTimer(new Seconds(15));
             timerBookEnd.Elapsed += () =>
             {
                 latch.Signal();

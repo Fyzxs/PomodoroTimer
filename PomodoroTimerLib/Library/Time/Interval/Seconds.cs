@@ -1,6 +1,6 @@
 using System;
 
-namespace PomodoroTimerLib.Library.Time {
+namespace PomodoroTimerLib.Library.Time.Interval {
     public sealed class Seconds : TimeInterval
     {
         private readonly double _seconds;
