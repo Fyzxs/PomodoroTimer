@@ -1,4 +1,5 @@
 using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Primitives.Texts;
 using PomodoroTimerLib.Library.Time.Interval;
 using System;
 
@@ -13,5 +14,7 @@ namespace PomodoroTimerLib.Library.Time
         public Number Milliseconds() => new TimeIntervalAsMilliseconds(this);
 
         public TimeInterval Multiply(Number factor) => new ProductOfTimeIntervals(this, factor);
+        public TimeInterval Subtract(TimeInterval subtrahend) => new DifferenceOfTimeInterval(this, subtrahend);
+        public Text Format(Text format) => new TimeIntervalToText(this, format);
     }
 }

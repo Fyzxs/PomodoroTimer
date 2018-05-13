@@ -1,5 +1,4 @@
 using PomodoroTimerLib.Library.Primitives.Bools;
-using PomodoroTimerLib.Library.Timers;
 
 namespace PomodoroTimerLib.Library.Primitives
 {
@@ -9,5 +8,7 @@ namespace PomodoroTimerLib.Library.Primitives
         protected abstract double Value();
 
         public Bool LessThan(Number other) => new NumberLessThan(this, other);
+
+        public Bool EqualTo(Number other) => new NumbersEqual(this, other);
     }
 }

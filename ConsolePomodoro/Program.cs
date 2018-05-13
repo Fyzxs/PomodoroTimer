@@ -33,7 +33,7 @@ namespace ConsolePomodoro
             Console.WriteLine("Take a break!");
             Console.WriteLine("Hit Enter to start your break:");
             Console.ReadLine();
-            IRepeatSpecifiedTimesTimer timer = new RepeatSpecifiedTimesTimer(new Seconds(5), new Milliseconds(500));
+            ICountDownTimer timer = new CountDownTimer(new Seconds(5), new Milliseconds(500));
             timer.RepeatSpecified += (duration, elapsed, more) =>
             {
                 if (more)
@@ -53,7 +53,7 @@ namespace ConsolePomodoro
             Console.WriteLine("Time for Pomodoro!");
             Console.WriteLine("Hit Enter to start your session:");
             Console.ReadLine();
-            IRepeatSpecifiedTimesTimer timer = new RepeatSpecifiedTimesTimer(new Seconds(5), new Milliseconds(500));
+            ICountDownTimer timer = new CountDownTimer(new Seconds(5), new Milliseconds(500));
             timer.RepeatSpecified += (duration, elapsed, more) =>
             {
                 if (more)

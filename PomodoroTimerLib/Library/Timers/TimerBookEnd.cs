@@ -25,6 +25,23 @@ namespace PomodoroTimerLib.Library.Timers
         private void OnElapsed(object sender, ElapsedEventArgs e) => Elapsed?.Invoke();
     }
 
+    /*
+     * A COMMENT! *GASP!*
+     * I had this as a Bool, because it resolves to boolean. But it's not a bool. It's a slug.
+     * It needs to resolve to a bool for the bookend, but not a bool.
+     * To resolve via the implicit cast can't be an interface... so... no interface.
+     */
+    internal sealed class TimerAutoReset
+    {
+
+        public static readonly TimerAutoReset Repeat = new TimerAutoReset();
+        public static readonly TimerAutoReset Single = new TimerAutoReset();
+
+        public static implicit operator bool(TimerAutoReset origin) => origin == Repeat;
+
+        private TimerAutoReset() { }
+    }
+
     public interface ITimerBookEnd
     {
         event TimerElapsedEvent Elapsed;
