@@ -1,5 +1,5 @@
-﻿using PomodoroTimerLib.Library.Primitives.Texts;
-using PomodoroTimerLib.Library.Time;
+﻿using PomodoroTimerLib.Library;
+using PomodoroTimerLib.Library.Primitives.Texts;
 using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using System;
@@ -18,12 +18,12 @@ namespace PomodorTimerDesktop
         private void btnStartSession_Click(object sender, EventArgs e)
         {
             //CountDownTimer countDownTimer = new CountDownTimer(new Minutes(24), new Milliseconds(500));
-            CountDownTimer countDownTimer = new CountDownTimer(new Seconds(2), new Milliseconds(500));
-            countDownTimer.RepeatSpecified += CountDownTimerOnRepeatSpecified;
-            countDownTimer.Start();
+            CountdownTimer countdownTimer = new CountdownTimer(new Seconds(2), new Milliseconds(500));
+            countdownTimer.RepeatSpecified += CountDownTimerOnRepeatSpecified;
+            countdownTimer.Start();
         }
 
-        private void CountDownTimerOnRepeatSpecified(TimeInterval duration, TimeInterval elapsed, TimerProgress isMore)
+        private void CountDownTimerOnRepeatSpecified(ICountdownTime countDownTime, TimerProgress isMore)
         {
             if (!isMore)
             {
@@ -38,8 +38,7 @@ namespace PomodorTimerDesktop
 
             lblCountDown.Invoke((MethodInvoker)delegate
             {
-                lblCountDown.Text = duration.Subtract(elapsed).Format(new TextOf(@"mm\:ss"));
-
+                lblCountDown.Text = countDownTime.Remaining().Format(new TextOf(@"mm\:ss"));
             });
         }
     }

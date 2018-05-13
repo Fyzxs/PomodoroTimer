@@ -6,48 +6,66 @@ using PomodoroTimerLib.Library.Timers.Delegates;
 namespace PomodoroTimerLib.Library.Timers
 {
     //TODO: Remove DelegatingTimer
-    public sealed class CountDownTimer : DelegatingTimer, ICountDownTimer
+    public sealed class CountdownTimer : ICountdownTimer
     {
-        private readonly TimeInterval _interval;
-        private readonly TimeInterval _precision;
-        private readonly Number _events;//TODO: Counter and Events are always used together - High Cohesion Extract
+        private readonly Number _events;
         private readonly ICounter _counter;
+        private readonly ICountdownTime _countdownTime;
+        private readonly ITimerBookEnd _timerBookEnd;
 
-        public CountDownTimer(TimeInterval interval, TimeInterval precision) : this(interval, precision, new QuotientOfTimeInterval(interval, precision), new Counter()) { }
-        private CountDownTimer(TimeInterval interval, TimeInterval precision, Number events, ICounter counter) : base(new TimerBookEnd(precision, TimerAutoReset.Repeat))
+        public event RepeatSpecifiedEvent RepeatSpecified;
+
+        public CountdownTimer(TimeInterval interval, TimeInterval precision) : this(interval, precision, new QuotientOfTimeInterval(interval, precision), new Counter()) { }
+        private CountdownTimer(TimeInterval interval, TimeInterval precision, Number events, ICounter counter) : this(events, counter, new CountdownTime(interval, precision, counter), new TimerBookEnd(precision, TimerAutoReset.Repeat)) { }
+        private CountdownTimer(Number events, ICounter counter, ICountdownTime countdownTime, ITimerBookEnd timerBookEnd)
         {
-            _interval = interval;
-            _precision = precision;
             _events = events;
             _counter = counter;
-            Elapsed += OnElapsed;
+            _countdownTime = countdownTime;
+            _timerBookEnd = timerBookEnd;
+
+            _timerBookEnd.Elapsed += OnElapsed;
         }
 
         //TODO: Chain
         private void OnElapsed()
         {
-            if (_events.LessThan(_counter.Value()))
+            ICountdownTimer countdownTimer = this;
+
+            if (countdownTimer.CountdownState().Finished())
             {
-                Close();
+                countdownTimer.Close();
                 return;
             }
 
-            if (_counter.Value().EqualTo(_events))
+            if (countdownTimer.CountdownState().Last())
             {
-                _counter.Increment();
-                RepeatSpecified?.Invoke(_interval, _precision.Multiply(_counter.Value()), TimerProgress.Last);
+                countdownTimer.Invoke(TimerProgress.Last);
                 return;
             }
 
-            _counter.Increment();
-            RepeatSpecified?.Invoke(_interval, _precision.Multiply(_counter.Value()), TimerProgress.More);
+            countdownTimer.Invoke(TimerProgress.More);
         }
 
-        public event RepeatSpecifiedEvent RepeatSpecified;
+        public void Invoke(TimerProgress progress)
+        {
+            _counter.Increment();
+            RepeatSpecified?.Invoke(_countdownTime, progress);
+        }
+
+        public ICountdownState CountdownState() => new CountdownState(_events, _counter);
+
+        public void Start() => _timerBookEnd.Start();
+
+        public void Close() => _timerBookEnd.Close();
     }
 
-    public interface ICountDownTimer : ITimer
+    public interface ICountdownTimer
     {
         event RepeatSpecifiedEvent RepeatSpecified;
+        ICountdownState CountdownState();
+        void Invoke(TimerProgress progress);
+        void Start();
+        void Close();
     }
 }

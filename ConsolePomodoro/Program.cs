@@ -33,12 +33,12 @@ namespace ConsolePomodoro
             Console.WriteLine("Take a break!");
             Console.WriteLine("Hit Enter to start your break:");
             Console.ReadLine();
-            ICountDownTimer timer = new CountDownTimer(new Seconds(5), new Milliseconds(500));
-            timer.RepeatSpecified += (duration, elapsed, more) =>
+            ICountdownTimer timer = new CountdownTimer(new Seconds(5), new Milliseconds(500));
+            timer.RepeatSpecified += (countdownTime, more) =>
             {
                 if (more)
                 {
-                    PrintRemainingBreak(((TimeSpan)duration).Subtract(elapsed));
+                    PrintRemainingBreak(countdownTime.Remaining());
                     return;
                 }
                 timer.Close();
@@ -53,12 +53,12 @@ namespace ConsolePomodoro
             Console.WriteLine("Time for Pomodoro!");
             Console.WriteLine("Hit Enter to start your session:");
             Console.ReadLine();
-            ICountDownTimer timer = new CountDownTimer(new Seconds(5), new Milliseconds(500));
-            timer.RepeatSpecified += (duration, elapsed, more) =>
+            ICountdownTimer timer = new CountdownTimer(new Seconds(5), new Milliseconds(500));
+            timer.RepeatSpecified += (countdownTime, more) =>
             {
                 if (more)
                 {
-                    PrintRemainingSession(((TimeSpan)duration).Subtract(elapsed));
+                    PrintRemainingSession(countdownTime.Remaining());
                     return;
                 }
                 timer.Close();
