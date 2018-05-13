@@ -1,10 +1,10 @@
-﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PomodoroTimerLib.Library.Counters;
 
-namespace PomodoroTimerLibTests.Library
+namespace PomodoroTimerLibTests.Library.Counters
 {
     [TestClass]
     public class CounterTests

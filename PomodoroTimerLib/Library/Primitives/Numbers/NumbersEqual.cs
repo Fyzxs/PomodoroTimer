@@ -1,7 +1,7 @@
-using PomodoroTimerLib.Library.Primitives.Bools;
 using System;
+using PomodoroTimerLib.Library.Primitives.Bools;
 
-namespace PomodoroTimerLib.Library.Primitives
+namespace PomodoroTimerLib.Library.Primitives.Numbers
 {
     internal sealed class NumbersEqual : Bool
     {

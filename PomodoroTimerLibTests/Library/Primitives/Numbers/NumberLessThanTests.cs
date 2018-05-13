@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library.Primitives;
 using PomodoroTimerLib.Library.Primitives.Bools;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 
-namespace PomodoroTimerLibTests.Library.Primitives
+namespace PomodoroTimerLibTests.Library.Primitives.Numbers
 {
     [TestClass]
     public class NumberLessThanTests

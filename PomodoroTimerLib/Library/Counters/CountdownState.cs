@@ -1,7 +1,7 @@
-using PomodoroTimerLib.Library.Primitives;
 using PomodoroTimerLib.Library.Primitives.Bools;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 
-namespace PomodoroTimerLib.Library
+namespace PomodoroTimerLib.Library.Counters
 {
     public sealed class CountdownState : ICountdownState
     {

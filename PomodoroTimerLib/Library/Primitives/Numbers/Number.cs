@@ -1,6 +1,6 @@
 using PomodoroTimerLib.Library.Primitives.Bools;
 
-namespace PomodoroTimerLib.Library.Primitives
+namespace PomodoroTimerLib.Library.Primitives.Numbers
 {
     public abstract class Number
     {

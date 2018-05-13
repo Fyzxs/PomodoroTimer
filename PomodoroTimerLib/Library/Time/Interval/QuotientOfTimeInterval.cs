@@ -1,7 +1,8 @@
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using System;
-using PomodoroTimerLib.Library.Primitives;
 
-namespace PomodoroTimerLib.Library.Time.Interval {
+namespace PomodoroTimerLib.Library.Time.Interval
+{
     public class QuotientOfTimeInterval : Number
     {
         private readonly TimeInterval _dividend;

@@ -1,4 +1,4 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using PomodoroTimerLib.Library.Primitives.Texts;
 using PomodoroTimerLib.Library.Time.Interval;
 using System;
@@ -11,7 +11,7 @@ namespace PomodoroTimerLib.Library.Time
 
         protected abstract TimeSpan Value();
 
-        public Number Milliseconds() => new TimeIntervalAsMilliseconds(this);
+        public Number Milliseconds() => new MillisecondsInTimeInterval(this);
 
         public TimeInterval Multiply(Number factor) => new ProductOfTimeIntervals(this, factor);
         public TimeInterval Subtract(TimeInterval subtrahend) => new DifferenceOfTimeInterval(this, subtrahend);

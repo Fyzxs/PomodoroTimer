@@ -1,22 +1,22 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using PomodoroTimerLib.Library.Time.Interval;
 
-namespace PomodoroTimerLibTests.Library.Primitives
+namespace PomodoroTimerLibTests.Library.Primitives.Numbers
 {
     [TestClass]
-    public class TimeIntervalAsMillisecondsTests
+    public class MillisecondsInTimeIntervalTests
     {
         [TestMethod, TestCategory("unit")]
         public void ShouldReturnTimeIntervalAsMilliseconds()
         {
             //Arrange
             Seconds seconds = new Seconds(100);
-            TimeIntervalAsMilliseconds timeIntervalAsMilliseconds = new TimeIntervalAsMilliseconds(seconds);
+            MillisecondsInTimeInterval millisecondsInTimeInterval = new MillisecondsInTimeInterval(seconds);
 
             //Act
-            double actual = timeIntervalAsMilliseconds;
+            double actual = millisecondsInTimeInterval;
 
             //Assert
             actual.Should().Be(100_000);

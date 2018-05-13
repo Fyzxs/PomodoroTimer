@@ -1,11 +1,11 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Counters;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using PomodoroTimerLib.Library.Time;
 using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers.Delegates;
 
 namespace PomodoroTimerLib.Library.Timers
 {
-    //TODO: Remove DelegatingTimer
     public sealed class CountdownTimer : ICountdownTimer
     {
         private readonly Number _events;

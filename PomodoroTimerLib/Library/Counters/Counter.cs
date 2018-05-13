@@ -1,7 +1,7 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using System.Threading;
 
-namespace PomodoroTimerLib.Library
+namespace PomodoroTimerLib.Library.Counters
 {
     public class Counter : ICounter
     {

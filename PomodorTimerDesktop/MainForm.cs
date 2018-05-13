@@ -1,4 +1,4 @@
-﻿using PomodoroTimerLib.Library;
+﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Primitives.Texts;
 using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;

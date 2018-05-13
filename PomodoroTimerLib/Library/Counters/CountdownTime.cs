@@ -1,7 +1,7 @@
 using PomodoroTimerLib.Library.Time;
 using PomodoroTimerLib.Library.Time.Interval;
 
-namespace PomodoroTimerLib.Library
+namespace PomodoroTimerLib.Library.Counters
 {
     public sealed class CountdownTime : ICountdownTime
     {
@@ -10,7 +10,7 @@ namespace PomodoroTimerLib.Library
         public CountdownTime(TimeInterval interval, TimeInterval precision, ICounter counter) : this(interval, new ElapsedTimeIntervals(precision, counter)) { }
 
 
-        public CountdownTime(TimeInterval interval, TimeInterval elapsed)
+        private CountdownTime(TimeInterval interval, TimeInterval elapsed)
         {
             _interval = interval;
             _elapsed = elapsed;

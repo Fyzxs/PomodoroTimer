@@ -1,6 +1,8 @@
+using PomodoroTimerLib.Library.Counters;
 using System;
 
-namespace PomodoroTimerLib.Library.Time.Interval {
+namespace PomodoroTimerLib.Library.Time.Interval
+{
     internal sealed class ElapsedTimeIntervals : TimeInterval
     {
         private readonly TimeInterval _precision;

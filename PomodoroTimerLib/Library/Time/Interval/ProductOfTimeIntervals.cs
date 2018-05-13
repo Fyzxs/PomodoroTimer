@@ -1,4 +1,4 @@
-using PomodoroTimerLib.Library.Primitives;
+using PomodoroTimerLib.Library.Primitives.Numbers;
 using System;
 
 namespace PomodoroTimerLib.Library.Time.Interval
