@@ -18,7 +18,7 @@ namespace PomodorTimerDesktop
         private void btnStartSession_Click(object sender, EventArgs e)
         {
             //CountDownTimer countDownTimer = new CountDownTimer(new Minutes(24), new Milliseconds(500));
-            CountdownTimer countdownTimer = new CountdownTimer(new Seconds(2), new Milliseconds(500));
+            CountdownTimer countdownTimer = new CountdownTimer(new Seconds(4), new Milliseconds(500));
             countdownTimer.RepeatSpecified += CountDownTimerOnRepeatSpecified;
             countdownTimer.Start();
         }
