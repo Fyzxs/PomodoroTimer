@@ -12,9 +12,9 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
                 new CountdownTimerUpdateAction_FinishedForeColor(
                     new CountdownTimerUpdateAction_RemainingTime(
                         new CountdownTimerUpdateAction_ShowSessionOver(
-                            new CountdownTimerUpdateAction_ShowBreakStart(
-                                new CountdownTimerUpdateAction_FormToTop(
-                                    new NoOpUpdateAction())))))))
+                                new SessionTimerUpdateAction_ShowNextStart(
+                                    new CountdownTimerUpdateAction_FormToTop(
+                                        new NoOpUpdateAction())))))))
         { }
 
         public SessionTimerUpdateAction_TimerFinished(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;

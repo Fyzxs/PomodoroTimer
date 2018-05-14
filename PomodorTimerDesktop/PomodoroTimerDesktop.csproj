@@ -58,6 +58,7 @@
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowLongBreakStart.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionStart.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowShortBreakOver.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowShortBreakStart.cs" />
     <Compile Include="Actions\TimerUpdate\NoOpUpdateAction.cs" />
     <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_DefaultForeColor.cs" />
@@ -66,13 +67,12 @@
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstMore.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstNoMore.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_RemainingTime.cs" />
-    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowBreakStart.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionOver.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_ShowNextStart.cs" />
     <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_TimerFinished.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_TimerRunning.cs" />
     <Compile Include="Actions\TimerUpdate\ICountdownTimerUpdateAction.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction.cs" />
-    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_ShowNextStart.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_TimerFinished.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

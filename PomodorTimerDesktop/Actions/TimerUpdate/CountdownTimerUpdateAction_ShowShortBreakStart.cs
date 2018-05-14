@@ -1,13 +1,12 @@
 ﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate
-{
-    internal sealed class CountdownTimerUpdateAction_ShowBreakStart : ICountdownTimerUpdateAction
+namespace PomodorTimerDesktop.Actions.TimerUpdate {
+    internal sealed class CountdownTimerUpdateAction_ShowShortBreakStart : ICountdownTimerUpdateAction
     {
         private readonly ICountdownTimerUpdateAction _nextAction;
 
-        public CountdownTimerUpdateAction_ShowBreakStart(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
+        public CountdownTimerUpdateAction_ShowShortBreakStart(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {

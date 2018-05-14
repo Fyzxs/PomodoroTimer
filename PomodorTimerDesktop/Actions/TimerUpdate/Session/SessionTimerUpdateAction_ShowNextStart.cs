@@ -2,21 +2,22 @@
 using PomodoroTimerLib.Library.Primitives.Numbers;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate.ShortBreak {
-    internal sealed class ShortBreakTimerUpdateAction_ShowNextStart : ICountdownTimerUpdateAction
+namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
+{
+    internal sealed class SessionTimerUpdateAction_ShowNextStart : ICountdownTimerUpdateAction
     {
         private static readonly Number SessionsToLongBreak = new NumberOf(4);
         private readonly ICountdownTimerUpdateAction _sessionAction;
         private readonly ICountdownTimerUpdateAction _longBreakAction;
         private readonly ICounter _counter;
 
-        public ShortBreakTimerUpdateAction_ShowNextStart(ICountdownTimerUpdateAction nextAction) : this(
-            new CountdownTimerUpdateAction_ShowSessionStart(nextAction),
+        public SessionTimerUpdateAction_ShowNextStart(ICountdownTimerUpdateAction nextAction) : this(
+            new CountdownTimerUpdateAction_ShowShortBreakStart(nextAction),
             new CountdownTimerUpdateAction_ShowLongBreakStart(nextAction),
             new Counter())
         { }
 
-        private ShortBreakTimerUpdateAction_ShowNextStart(
+        private SessionTimerUpdateAction_ShowNextStart(
             ICountdownTimerUpdateAction sessionAction,
             ICountdownTimerUpdateAction longBreakAction,
             ICounter counter)
