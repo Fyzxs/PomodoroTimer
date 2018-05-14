@@ -2,8 +2,6 @@
 
 namespace PomodoroTimerLib.Library.Counters
 {
-
-
     public interface ICounter
     {
         void Increment();

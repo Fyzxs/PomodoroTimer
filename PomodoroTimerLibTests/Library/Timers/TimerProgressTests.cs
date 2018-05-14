@@ -12,7 +12,7 @@ namespace PomodoroTimerLibTests.Library.Timers
         {
             //Arrange
             //Act
-            bool actual = TimerProgress.More;
+            bool actual = TimerProgress.More.AsBool();
 
             //Assert
             actual.Should().BeTrue();
@@ -22,7 +22,7 @@ namespace PomodoroTimerLibTests.Library.Timers
         {
             //Arrange
             //Act
-            bool actual = TimerProgress.Last;
+            bool actual = TimerProgress.Last.AsBool();
 
             //Assert
             actual.Should().BeFalse();

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Counters;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PomodoroTimerLibTests.Library.Counters
 {
@@ -21,6 +21,39 @@ namespace PomodoroTimerLibTests.Library.Counters
             //Assert
             double actual = subject.Value();
             actual.Should().Be(1);
+        }
+
+        [TestMethod, TestCategory("unit")]
+        public void ShouldShouldGetValueBack()
+        {
+            //Arrange
+            Counter subject = new Counter();
+            subject.Increment();
+            subject.Increment();
+            subject.Increment();
+
+            //Act
+            double actual = subject.Value();
+
+            //Assert
+            actual.Should().Be(3);
+        }
+
+        [TestMethod, TestCategory("unit")]
+        public void ShouldShouldReset()
+        {
+            //Arrange
+            Counter subject = new Counter();
+            subject.Increment();
+            subject.Increment();
+            subject.Increment();
+
+            //Act
+            subject.Restart();
+
+            //Assert
+            double actual = subject.Value();
+            actual.Should().Be(0);
         }
 
         [TestMethod, TestCategory("unit")]

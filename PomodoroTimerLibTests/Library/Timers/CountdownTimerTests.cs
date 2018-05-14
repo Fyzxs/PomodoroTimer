@@ -2,7 +2,6 @@
 using InterfaceMocks.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Counters;
-using PomodoroTimerLib.Library.Primitives.Numbers;
 using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using PomodoroTimerLibTests.Mocks;
@@ -17,11 +16,10 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void Close_ShouldInvokeTimerBookEnd()
         {
             //Arrange
-            NumberOf events = new NumberOf(10);
-            MockCounter mockCounter = new MockCounter.Builder().Build();
-            MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
+            MockCountdownTimerElapsedAction mockCountdownTimerElapsedAction = new MockCountdownTimerElapsedAction.Builder().Build();
             MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Close().Build();
-            CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
+            MockCountdownTracker mockCountdownTracker = new MockCountdownTracker.Builder().Build();
+            CountdownTimer subject = new PrivateCtor<CountdownTimer>(mockCountdownTimerElapsedAction, mockTimerBookEnd, mockCountdownTracker);
 
             //Act
             subject.Stop();
@@ -34,16 +32,17 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void Start_ShouldInvokeTimerBookEnd()
         {
             //Arrange
-            NumberOf events = new NumberOf(10);
-            MockCounter mockCounter = new MockCounter.Builder().Build();
-            MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
+            //Arrange
+            MockCountdownTimerElapsedAction mockCountdownTimerElapsedAction = new MockCountdownTimerElapsedAction.Builder().Build();
             MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Start().Build();
-            CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
+            MockCountdownTracker mockCountdownTracker = new MockCountdownTracker.Builder().Restart().Build();
+            CountdownTimer subject = new PrivateCtor<CountdownTimer>(mockCountdownTimerElapsedAction, mockTimerBookEnd, mockCountdownTracker);
 
             //Act
             subject.Start();
 
             //Assert
+            mockCountdownTracker.AssertRestartInvoked();
             mockTimerBookEnd.AssertStartInvoked();
         }
 
@@ -51,31 +50,29 @@ namespace PomodoroTimerLibTests.Library.Timers
         public void CountdownState_ShouldReturnAccurateState()
         {
             //Arrange
-            NumberOf events = new NumberOf(10);
-            MockCounter mockCounter = new MockCounter.Builder().Value(events).Build();
-            MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
+            //Arrange
+            MockCountdownState mockCountdownState = new MockCountdownState.Builder().Build();
+            MockCountdownTimerElapsedAction mockCountdownTimerElapsedAction = new MockCountdownTimerElapsedAction.Builder().Build();
             MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Build();
-            CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
+            MockCountdownTracker mockCountdownTracker = new MockCountdownTracker.Builder().CountdownState(mockCountdownState).Build();
+            CountdownTimer subject = new PrivateCtor<CountdownTimer>(mockCountdownTimerElapsedAction, mockTimerBookEnd, mockCountdownTracker);
 
             //Act
             ICountdownState actual = subject.CountdownState();
 
             //Assert
-            bool finished = actual.Finished();
-            bool last = actual.Last();
-            finished.Should().BeFalse();
-            last.Should().BeTrue();
+            actual.Should().Be(mockCountdownState);
         }
 
         [TestMethod, TestCategory("unit")]
         public void Invoke_ShouldTriggerEvent()
         {
             //Arrange
-            NumberOf events = new NumberOf(10);
-            MockCounter mockCounter = new MockCounter.Builder().Increment().Build();
-            MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
-            MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Start().Build();
-            CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
+            //Arrange
+            MockCountdownTimerElapsedAction mockCountdownTimerElapsedAction = new MockCountdownTimerElapsedAction.Builder().Build();
+            MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Build();
+            MockCountdownTracker mockCountdownTracker = new MockCountdownTracker.Builder().Increment().Build();
+            CountdownTimer subject = new PrivateCtor<CountdownTimer>(mockCountdownTimerElapsedAction, mockTimerBookEnd, mockCountdownTracker);
             CountdownEvent latch = new CountdownEvent(1);
             subject.TimerEvent += (time, more) => latch.Signal();
 
@@ -84,7 +81,7 @@ namespace PomodoroTimerLibTests.Library.Timers
 
             //Assert
             latch.Wait(10).Should().BeTrue();
-            mockCounter.AssertIncrementInvoked();
+            mockCountdownTracker.AssertIncrementInvoked();
         }
 
         [TestMethod, TestCategory("integration")]
