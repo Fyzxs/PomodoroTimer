@@ -17,7 +17,7 @@ namespace PomodoroTimerLibTests.Mocks
         public ICountdownState CountdownState() => _countdownState.Invoke();
         public void Invoke(TimerProgress progress) => _invoke.Invoke(progress);
         public void Start() => _start.Invoke();
-        public void Close() => _close.Invoke();
+        public void Stop() => _close.Invoke();
 
         public class Builder
         {

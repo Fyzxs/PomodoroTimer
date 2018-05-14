@@ -45,6 +45,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_HideLongBreakStart.cs" />
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_HideShortBreakStart.cs" />
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_StartTimer.cs" />
+    <Compile Include="Actions\TimerStart\ICountdownTimerStartAction.cs" />
+    <Compile Include="Actions\TimerStart\LongBreakTimerStartAction.cs" />
+    <Compile Include="Actions\TimerStart\NoOpTimerStartAction.cs" />
+    <Compile Include="Actions\TimerStart\SessionTimerStartAction.cs" />
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_HideSessionStart.cs" />
+    <Compile Include="Actions\TimerStart\ShortBreakTimerStartAction.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowLongBreakOver.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowLongBreakStart.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionStart.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowShortBreakOver.cs" />
+    <Compile Include="Actions\TimerUpdate\NoOpUpdateAction.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_DefaultForeColor.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FinishedForeColor.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FormToTop.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstMore.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstNoMore.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_RemainingTime.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowBreakStart.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionOver.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_TimerFinished.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_TimerRunning.cs" />
+    <Compile Include="Actions\TimerUpdate\ICountdownTimerUpdateAction.cs" />
+    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction.cs" />
+    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_ShowNextStart.cs" />
+    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_TimerFinished.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +82,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wrappers\ArgbColor.cs" />
+    <Compile Include="Wrappers\BlackArgbColor.cs" />
+    <Compile Include="Wrappers\ForeColorWriter.cs" />
+    <Compile Include="Wrappers\IVisibility.cs" />
+    <Compile Include="Wrappers\IWriteColor.cs" />
+    <Compile Include="Wrappers\RedArgbColor.cs" />
+    <Compile Include="Wrappers\VisibilityOf.cs" />
+    <Compile Include="Wrappers\WriteControl.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

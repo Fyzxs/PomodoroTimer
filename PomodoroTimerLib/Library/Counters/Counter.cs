@@ -9,12 +9,8 @@ namespace PomodoroTimerLib.Library.Counters
 
         public Number Value() => new NumberOf(Interlocked.Read(ref _count));
 
-        public void Increment() => Interlocked.Increment(ref _count);
-    }
+        public void Restart() => Interlocked.Exchange(ref _count, 0);
 
-    public interface ICounter
-    {
-        void Increment();
-        Number Value();
+        public void Increment() => Interlocked.Increment(ref _count);
     }
 }

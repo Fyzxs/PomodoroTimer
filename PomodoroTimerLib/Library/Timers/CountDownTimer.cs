@@ -37,9 +37,13 @@ namespace PomodoroTimerLib.Library.Timers
 
         public ICountdownState CountdownState() => _countdownTracker.CountdownState();
 
-        public void Start() => _timerBookEnd.Start();
+        public void Start()
+        {
+            _countdownTracker.Restart();
+            _timerBookEnd.Start();
+        }
 
-        public void Close() => _timerBookEnd.Close();
+        public void Stop() => _timerBookEnd.Stop();
     }
 
     public interface ICountdownTimer
@@ -48,6 +52,6 @@ namespace PomodoroTimerLib.Library.Timers
         ICountdownState CountdownState();
         void Invoke(TimerProgress progress);
         void Start();
-        void Close();
+        void Stop();
     }
 }

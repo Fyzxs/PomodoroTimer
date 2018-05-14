@@ -20,7 +20,7 @@ namespace PomodoroTimerLib.Library.Timers
         }
 
         public void Start() => _timer.Start();
-        public void Close() => _timer.Close();
+        public void Stop() => _timer.Stop();
 
         private void OnElapsed(object sender, ElapsedEventArgs e) => Elapsed?.Invoke();
     }
@@ -46,6 +46,6 @@ namespace PomodoroTimerLib.Library.Timers
     {
         event TimerElapsedEvent Elapsed;
         void Start();
-        void Close();
+        void Stop();
     }
 }

@@ -1,4 +1,5 @@
-namespace PomodoroTimerLib.Library.Timers.CountdownActions {
+namespace PomodoroTimerLib.Library.Timers.CountdownActions
+{
     public sealed class CountdownTimerElapsedAction_FinishedGuard : ICountdownTimerElapsedAction
     {
         private readonly ICountdownTimerElapsedAction _nextAction;
@@ -14,7 +15,7 @@ namespace PomodoroTimerLib.Library.Timers.CountdownActions {
                 _nextAction.Act(timer);
                 return;
             }
-            timer.Close();
+            timer.Stop();
         }
     }
 }

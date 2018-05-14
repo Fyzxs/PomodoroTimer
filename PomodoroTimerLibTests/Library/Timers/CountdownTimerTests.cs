@@ -3,6 +3,7 @@ using InterfaceMocks.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Primitives.Numbers;
+using PomodoroTimerLib.Library.Time.Interval;
 using PomodoroTimerLib.Library.Timers;
 using PomodoroTimerLibTests.Mocks;
 using System.Threading;
@@ -23,7 +24,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
 
             //Act
-            subject.Close();
+            subject.Stop();
 
             //Assert
             mockTimerBookEnd.AssertCloseInvoked();
@@ -85,6 +86,26 @@ namespace PomodoroTimerLibTests.Library.Timers
             latch.Wait(10).Should().BeTrue();
             mockCounter.AssertIncrementInvoked();
         }
+
+        [TestMethod, TestCategory("integration")]
+        public void TimerShouldBeRestartable()
+        {
+            CountdownTimer subject = new CountdownTimer(new Milliseconds(500), new Milliseconds(100));
+            CountdownEvent latch = new CountdownEvent(5);
+
+            subject.RepeatSpecified += (time, more) => latch.Signal();
+
+            subject.Start();
+
+            latch.Wait(700).Should().BeTrue();
+
+            latch = new CountdownEvent(5);
+
+            subject.Start();
+            latch.Wait(700).Should().BeTrue();
+        }
+
+
 
         //TODO: Test chain invoked
 

@@ -29,6 +29,7 @@ namespace PomodoroTimerLib.Library.Counters
         public Number Value() => _counter.Value();
 
         public ICountdownState CountdownState() => new CountdownState(_events, _counter);
+        public void Restart() => _counter.Restart();
     }
 
     public interface ICountdownTracker : ICountdownTime, ICounter

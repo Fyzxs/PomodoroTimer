@@ -12,7 +12,7 @@ namespace PomodoroTimerLibTests.Mocks
         private MockTimerBookEnd() { }
         public event TimerElapsedEvent Elapsed;
         public void Start() => _start.Invoke();
-        public void Close() => _close.Invoke();
+        public void Stop() => _close.Invoke();
 
         public class Builder
         {

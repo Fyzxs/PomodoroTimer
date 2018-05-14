@@ -41,7 +41,7 @@ namespace ConsolePomodoro
                     PrintRemainingBreak(countdownTime.Remaining());
                     return;
                 }
-                timer.Close();
+                timer.Stop();
                 WaitHandle.Set();
             };
             timer.Start();
@@ -61,7 +61,7 @@ namespace ConsolePomodoro
                     PrintRemainingSession(countdownTime.Remaining());
                     return;
                 }
-                timer.Close();
+                timer.Stop();
                 RunBreak();
             };
             timer.Start();
