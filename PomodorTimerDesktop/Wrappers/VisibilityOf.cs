@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 
-namespace PomodorTimerDesktop.Wrappers {
+namespace PomodorTimerDesktop.Wrappers
+{
     public sealed class VisibilityOf : IVisibility
     {
         private readonly Control _control;
@@ -9,5 +10,10 @@ namespace PomodorTimerDesktop.Wrappers {
 
         public void Show() => _control.Invoke((MethodInvoker)delegate { _control.Visible = true; });
         public void Hide() => _control.Invoke((MethodInvoker)delegate { _control.Visible = false; });
+    }
+    public interface IVisibility
+    {
+        void Show();
+        void Hide();
     }
 }

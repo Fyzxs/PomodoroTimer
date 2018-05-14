@@ -2,15 +2,15 @@
 
 namespace PomodorTimerDesktop.Actions.TimerStart
 {
-    internal sealed class CountdownTimerStartAction_HideShortBreakStart : ICountdownTimerStartAction
+    internal sealed class CountdownTimerStartAction_DisableShortBreakStart : ICountdownTimerStartAction
     {
         private readonly ICountdownTimerStartAction _nextAction;
 
-        public CountdownTimerStartAction_HideShortBreakStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
+        public CountdownTimerStartAction_DisableShortBreakStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
         public void Act(IMainForm form, CountdownTimer timer)
         {
-            form.ShortBreakStartVisibility().Hide();
+            form.ShortBreakStartEnabled().Disable();
             _nextAction.Act(form, timer);
         }
     }

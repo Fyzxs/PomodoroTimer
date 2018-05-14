@@ -8,7 +8,7 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         public ShortBreakTimerStartAction() : this(
             new CountdownTimerStartAction_StartTimer(
-                new CountdownTimerStartAction_HideShortBreakStart(
+                new CountdownTimerStartAction_DisableShortBreakStart(
                     new NoOpTimerStartAction())))
         { }
 

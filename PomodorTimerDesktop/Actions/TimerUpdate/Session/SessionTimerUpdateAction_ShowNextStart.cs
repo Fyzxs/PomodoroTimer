@@ -7,7 +7,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
     internal sealed class SessionTimerUpdateAction_ShowNextStart : ICountdownTimerUpdateAction
     {
         private static readonly Number SessionsToLongBreak = new NumberOf(4);
-        private readonly ICountdownTimerUpdateAction _sessionAction;
+        private readonly ICountdownTimerUpdateAction _shortBreakAction;
         private readonly ICountdownTimerUpdateAction _longBreakAction;
         private readonly ICounter _counter;
 
@@ -18,11 +18,11 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
         { }
 
         private SessionTimerUpdateAction_ShowNextStart(
-            ICountdownTimerUpdateAction sessionAction,
+            ICountdownTimerUpdateAction shortBreakAction,
             ICountdownTimerUpdateAction longBreakAction,
             ICounter counter)
         {
-            _sessionAction = sessionAction;
+            _shortBreakAction = shortBreakAction;
             _longBreakAction = longBreakAction;
             _counter = counter;
         }
@@ -38,12 +38,12 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
         {
             if (_counter.Value().LessThan(SessionsToLongBreak).Not()) return;
 
-            _sessionAction.Act(mainForm, countdownTime, more);
+            _shortBreakAction.Act(mainForm, countdownTime, more);
         }
         private void ShowLongBreak(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {
             if (_counter.Value().LessThan(SessionsToLongBreak)) return;
-
+            _counter.Restart();
             _longBreakAction.Act(mainForm, countdownTime, more);
         }
     }

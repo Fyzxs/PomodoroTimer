@@ -23,10 +23,7 @@ namespace PomodorTimerDesktop.Periods
 
         public void SetMainForm(IMainForm mainForm) => _mainForm = mainForm;
 
-        private void TimerOnTimerEvent(ICountdownTime countdowntime, TimerProgress ismore)
-        {
-            _updateAction.Act(_mainForm, countdowntime, ismore);
-        }
+        private void TimerOnTimerEvent(ICountdownTime countdowntime, TimerProgress ismore) => _updateAction.Act(_mainForm, countdowntime, ismore);
 
         public void Start() => _startAction.Act(_mainForm, _timer);
     }

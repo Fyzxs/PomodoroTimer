@@ -37,7 +37,7 @@
             // btnStartSession
             // 
             this.btnStartSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartSession.Location = new System.Drawing.Point(12, 12);
+            this.btnStartSession.Location = new System.Drawing.Point(170, 6);
             this.btnStartSession.Name = "btnStartSession";
             this.btnStartSession.Size = new System.Drawing.Size(184, 72);
             this.btnStartSession.TabIndex = 0;
@@ -48,17 +48,17 @@
             // lblCountDown
             // 
             this.lblCountDown.AutoSize = true;
-            this.lblCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountDown.Location = new System.Drawing.Point(41, 87);
+            this.lblCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 128F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountDown.Location = new System.Drawing.Point(7, 84);
             this.lblCountDown.Name = "lblCountDown";
-            this.lblCountDown.Size = new System.Drawing.Size(130, 51);
+            this.lblCountDown.Size = new System.Drawing.Size(510, 193);
             this.lblCountDown.TabIndex = 1;
             this.lblCountDown.Text = "00:00";
             // 
             // btnStartShortBreak
             // 
             this.btnStartShortBreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartShortBreak.Location = new System.Drawing.Point(202, 12);
+            this.btnStartShortBreak.Location = new System.Drawing.Point(170, 6);
             this.btnStartShortBreak.Name = "btnStartShortBreak";
             this.btnStartShortBreak.Size = new System.Drawing.Size(184, 72);
             this.btnStartShortBreak.TabIndex = 2;
@@ -70,7 +70,7 @@
             // btnStartLongBreak
             // 
             this.btnStartLongBreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartLongBreak.Location = new System.Drawing.Point(392, 12);
+            this.btnStartLongBreak.Location = new System.Drawing.Point(170, 6);
             this.btnStartLongBreak.Name = "btnStartLongBreak";
             this.btnStartLongBreak.Size = new System.Drawing.Size(184, 72);
             this.btnStartLongBreak.TabIndex = 3;
@@ -83,11 +83,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnStartLongBreak);
-            this.Controls.Add(this.btnStartShortBreak);
+            this.ClientSize = new System.Drawing.Size(523, 293);
             this.Controls.Add(this.lblCountDown);
             this.Controls.Add(this.btnStartSession);
+            this.Controls.Add(this.btnStartLongBreak);
+            this.Controls.Add(this.btnStartShortBreak);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quinn Gil\'s Pomodoro Desktop App";

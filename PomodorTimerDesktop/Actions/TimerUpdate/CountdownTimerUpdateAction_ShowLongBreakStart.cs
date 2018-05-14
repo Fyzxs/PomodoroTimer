@@ -1,7 +1,8 @@
 ﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate {
+namespace PomodorTimerDesktop.Actions.TimerUpdate
+{
     internal sealed class CountdownTimerUpdateAction_ShowLongBreakStart : ICountdownTimerUpdateAction
     {
         private readonly ICountdownTimerUpdateAction _nextAction;
@@ -16,8 +17,6 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate {
 
         private static void Show(IMainForm mainForm, TimerProgress more)
         {
-            if (more.AsBool()) return;
-
             mainForm.LongBreakStartVisibility().Show();
         }
     }

@@ -3,15 +3,15 @@ using PomodoroTimerLib.Library.Timers;
 
 namespace PomodorTimerDesktop.Actions.TimerUpdate
 {
-    internal sealed class CountdownTimerUpdateAction_ShowShortBreakStart : ICountdownTimerUpdateAction
+    internal sealed class CountdownTimerUpdateAction_EnableShortBreakStart : ICountdownTimerUpdateAction
     {
         private readonly ICountdownTimerUpdateAction _nextAction;
 
-        public CountdownTimerUpdateAction_ShowShortBreakStart(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
+        public CountdownTimerUpdateAction_EnableShortBreakStart(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {
-            mainForm.ShortBreakStartVisibility().Show();
+            mainForm.ShortBreakStartEnabled().Enable();
             _nextAction.Act(mainForm, countdownTime, more);
         }
     }

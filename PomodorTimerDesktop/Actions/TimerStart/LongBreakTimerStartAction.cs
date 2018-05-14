@@ -1,13 +1,14 @@
 ﻿using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerStart {
+namespace PomodorTimerDesktop.Actions.TimerStart
+{
     internal sealed class LongBreakTimerStartAction : ICountdownTimerStartAction
     {
         private readonly ICountdownTimerStartAction _nextAction;
 
         public LongBreakTimerStartAction() : this(
             new CountdownTimerStartAction_StartTimer(
-                new CountdownTimerStartAction_HideLongBreakStart(
+                new CountdownTimerStartAction_DisableLongBreakStart(
                     new NoOpTimerStartAction())))
         { }
 

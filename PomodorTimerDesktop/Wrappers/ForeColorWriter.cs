@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 
-namespace PomodorTimerDesktop.Wrappers {
+namespace PomodorTimerDesktop.Wrappers
+{
     public sealed class ForeColorWriter : IWriteColor
     {
         private readonly Control _control;
@@ -11,5 +12,9 @@ namespace PomodorTimerDesktop.Wrappers {
         {
             _control.ForeColor = item;
         });
+    }
+    public interface IWriteColor
+    {
+        void Write(ArgbColor item);
     }
 }

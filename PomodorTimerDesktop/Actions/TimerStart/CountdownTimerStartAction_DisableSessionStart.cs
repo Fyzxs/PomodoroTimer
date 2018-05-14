@@ -2,15 +2,15 @@
 
 namespace PomodorTimerDesktop.Actions.TimerStart
 {
-    internal sealed class CountdownTimerStartAction_HideSessionStart : ICountdownTimerStartAction
+    internal sealed class CountdownTimerStartAction_DisableSessionStart : ICountdownTimerStartAction
     {
         private readonly ICountdownTimerStartAction _nextAction;
 
-        public CountdownTimerStartAction_HideSessionStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
+        public CountdownTimerStartAction_DisableSessionStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
         public void Act(IMainForm form, CountdownTimer timer)
         {
-            form.SessionStartVisibility().Hide();
+            form.SessionStartEnable().Disable();
             _nextAction.Act(form, timer);
         }
     }

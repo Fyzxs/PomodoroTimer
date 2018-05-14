@@ -7,7 +7,7 @@ namespace PomodorTimerDesktop.Actions.TimerStart
         private readonly ICountdownTimerStartAction _nextAction;
 
         public SessionTimerStartAction() : this(
-            new CountdownTimerStartAction_HideSessionStart(
+            new CountdownTimerStartAction_DisableSessionStart(
                 new CountdownTimerStartAction_StartTimer(
                     new NoOpTimerStartAction())))
         { }

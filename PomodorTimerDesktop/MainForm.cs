@@ -37,6 +37,12 @@ namespace PomodorTimerDesktop
 
         public IVisibility LongBreakStartVisibility() => new VisibilityOf(btnStartLongBreak);
 
+        public IEnabled SessionStartEnable() => new EnabledOf(btnStartSession);
+
+        public IEnabled ShortBreakStartEnabled() => new EnabledOf(btnStartShortBreak);
+
+        public IEnabled LongBreakStartEnabled() => new EnabledOf(btnStartLongBreak);
+
         public IWriteText CountDownTextWriter() => new WriteControl(lblCountDown);
 
         public IWriteColor CountDownForeColorWriter() => new ForeColorWriter(lblCountDown);
@@ -58,11 +64,14 @@ namespace PomodorTimerDesktop
     internal interface IMainForm
     {
         IVisibility SessionStartVisibility();
+        IVisibility ShortBreakStartVisibility();
         IVisibility LongBreakStartVisibility();
+        IEnabled SessionStartEnable();
+        IEnabled ShortBreakStartEnabled();
+        IEnabled LongBreakStartEnabled();
         IWriteText CountDownTextWriter();
         IWriteColor CountDownForeColorWriter();
-        void ToTop();
-        IVisibility ShortBreakStartVisibility();
         void ShowAlert(Text message);
+        void ToTop();
     }
 }
