@@ -13,7 +13,7 @@ namespace PomodoroTimerLibTests.Mocks
         private MockMethod _start;
         private MockMethod _close;
         private MockCountdownTimer() { }
-        public event RepeatSpecifiedEvent RepeatSpecified;
+        public event CountdownTimerEvent TimerEvent;
         public ICountdownState CountdownState() => _countdownState.Invoke();
         public void Invoke(TimerProgress progress) => _invoke.Invoke(progress);
         public void Start() => _start.Invoke();
@@ -88,7 +88,7 @@ namespace PomodoroTimerLibTests.Mocks
         public void TriggerElapsed(ICountdownTime countdownTime, TimerProgress isMore)
         {
             //TODO: Looks like a "MockEvent" is gonna be needed
-            RepeatSpecified.Invoke(countdownTime, isMore);
+            TimerEvent.Invoke(countdownTime, isMore);
         }
 
         public void AssertCountdownStateInvoked() => _countdownState.AssertInvoked();

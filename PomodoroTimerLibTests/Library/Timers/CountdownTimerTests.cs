@@ -77,7 +77,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             MockTimerBookEnd mockTimerBookEnd = new MockTimerBookEnd.Builder().Start().Build();
             CountdownTimer subject = new PrivateCtor<CountdownTimer>(events, mockCounter, mockCountdownTime, mockTimerBookEnd);
             CountdownEvent latch = new CountdownEvent(1);
-            subject.RepeatSpecified += (time, more) => latch.Signal();
+            subject.TimerEvent += (time, more) => latch.Signal();
 
             //Act
             subject.Invoke(TimerProgress.More);
@@ -93,7 +93,7 @@ namespace PomodoroTimerLibTests.Library.Timers
             CountdownTimer subject = new CountdownTimer(new Milliseconds(500), new Milliseconds(100));
             CountdownEvent latch = new CountdownEvent(5);
 
-            subject.RepeatSpecified += (time, more) => latch.Signal();
+            subject.TimerEvent += (time, more) => latch.Signal();
 
             subject.Start();
 

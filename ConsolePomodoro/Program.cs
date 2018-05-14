@@ -34,9 +34,9 @@ namespace ConsolePomodoro
             Console.WriteLine("Hit Enter to start your break:");
             Console.ReadLine();
             ICountdownTimer timer = new CountdownTimer(new Seconds(5), new Milliseconds(500));
-            timer.RepeatSpecified += (countdownTime, more) =>
+            timer.TimerEvent += (countdownTime, more) =>
             {
-                if (more)
+                if (more.AsBool())
                 {
                     PrintRemainingBreak(countdownTime.Remaining());
                     return;
@@ -54,9 +54,9 @@ namespace ConsolePomodoro
             Console.WriteLine("Hit Enter to start your session:");
             Console.ReadLine();
             ICountdownTimer timer = new CountdownTimer(new Seconds(5), new Milliseconds(500));
-            timer.RepeatSpecified += (countdownTime, more) =>
+            timer.TimerEvent += (countdownTime, more) =>
             {
-                if (more)
+                if (more.AsBool())
                 {
                     PrintRemainingSession(countdownTime.Remaining());
                     return;

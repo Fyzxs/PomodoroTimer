@@ -2,5 +2,5 @@ using PomodoroTimerLib.Library.Counters;
 
 namespace PomodoroTimerLib.Library.Timers.Delegates
 {
-    public delegate void RepeatSpecifiedEvent(ICountdownTime countdownTime, TimerProgress isMore);
+    public delegate void CountdownTimerEvent(ICountdownTime countdownTime, TimerProgress isMore);
 }

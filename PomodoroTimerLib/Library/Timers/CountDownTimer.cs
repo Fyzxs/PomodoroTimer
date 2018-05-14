@@ -11,7 +11,7 @@ namespace PomodoroTimerLib.Library.Timers
         private readonly ICountdownTracker _countdownTracker;
         private readonly ICountdownTimerElapsedAction _countdownTimerElapsedAction;
 
-        public event RepeatSpecifiedEvent RepeatSpecified;
+        public event CountdownTimerEvent TimerEvent;
 
         public CountdownTimer(TimeInterval interval, TimeInterval precision) : this(
             new CountdownTimerElapsedAction(),
@@ -32,7 +32,7 @@ namespace PomodoroTimerLib.Library.Timers
         public void Invoke(TimerProgress progress)
         {
             _countdownTracker.Increment();
-            RepeatSpecified?.Invoke(_countdownTracker, progress);
+            TimerEvent?.Invoke(_countdownTracker, progress);
         }
 
         public ICountdownState CountdownState() => _countdownTracker.CountdownState();
@@ -48,7 +48,7 @@ namespace PomodoroTimerLib.Library.Timers
 
     public interface ICountdownTimer
     {
-        event RepeatSpecifiedEvent RepeatSpecified;
+        event CountdownTimerEvent TimerEvent;
         ICountdownState CountdownState();
         void Invoke(TimerProgress progress);
         void Start();

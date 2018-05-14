@@ -80,6 +80,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Periods\LongBreakPomodoroPeriod.cs" />
+    <Compile Include="Periods\PomodoroPeriod.cs" />
+    <Compile Include="Periods\SessionPomodoroPeriod.cs" />
+    <Compile Include="Periods\ShortBreakPomodoroPeriod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\ArgbColor.cs" />
