@@ -61,7 +61,7 @@ namespace PomodorTimerDesktop
         private void btnStartLongBreak_Click(object sender, EventArgs e) => _longBreak.Start();
     }
 
-    internal interface IMainForm
+    public interface IMainForm
     {
         IVisibility SessionStartVisibility();
         IVisibility ShortBreakStartVisibility();

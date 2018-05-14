@@ -82,6 +82,7 @@
     <Compile Include="Actions\TimerUpdate\ICountdownTimerUpdateAction.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_TimerFinished.cs" />
+    <Compile Include="Assembly\Assembly.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
