@@ -3,11 +3,13 @@ using InterfaceMocks.Validators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerDesktopTests.Mocks;
 using PomodoroTimerLib.Library.Timers;
+using PomodorTimerDesktop.Actions.TimerUpdate;
 
 namespace PomodoroTimerDesktopTests
 {
     public class CreateTheTestsHere
     {
+        private CountdownTimerUpdateAction_FormToTop forTheReference;
         private ChainValidation chainValidation = new ChainValidation();
         TimerProgress timeProgress = TimerProgress.Last;
         MockMainForm mockMainForm = new MockMainForm.Builder().Build();
@@ -44,5 +46,25 @@ namespace PomodoroTimerDesktopTests
             ////Assert
             //chainValidation.AssertExpectedChain(subject);
         }
+        //[TestClass]
+        //public class Tests
+        //{
+        //    [TestMethod, TestCategory("unit")]
+        //    public void ShouldBringFormToTop()
+        //    {
+        //        //Arrange
+        //        TimerProgress timeProgress = TimerProgress.Last;
+        //        MockMainForm mockMainForm = new MockMainForm.Builder().Build();
+        //        MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
+        //        MockCountdownTimerUpdateAction nextAction = new MockCountdownTimerUpdateAction.Builder().Act().Build();
+        //        CountdownTimerUpdateAction_FormToTop subject = new CountdownTimerUpdateAction_FormToTop(nextAction);
+
+        //        //Act
+        //        subject.Act(mockMainForm, mockCountdownTime, timeProgress);
+
+        //        //Assert
+        //        nextAction.AssertActInvokedWith(mockMainForm, mockCountdownTime, timeProgress);
+        //    }
+        //}
     }
 }

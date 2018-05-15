@@ -11,13 +11,8 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {
-            Show(mainForm, more);
-            _nextAction.Act(mainForm, countdownTime, more);
-        }
-
-        private static void Show(IMainForm mainForm, TimerProgress more)
-        {
             mainForm.LongBreakStartVisibility().Show();
+            _nextAction.Act(mainForm, countdownTime, more);
         }
     }
 }

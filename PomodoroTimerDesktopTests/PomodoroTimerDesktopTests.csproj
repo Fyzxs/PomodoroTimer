@@ -50,6 +50,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\TimerStart\CountdownTimerStartAction_DisableLongBreakStartTests.cs" />
@@ -65,6 +67,19 @@
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_EnableShortBreakStartTests.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FinishedForeColorTests.cs" />
     <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FormToTopTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstMoreTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_GuardAgainstNoMoreTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_HideLongBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_HideSessionStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_HideShortBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_RemainingTimeTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowLongBreakOverTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowLongBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionOverTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowSessionStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowShortBreakOverTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_ShowShortBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_TimerRunningTests.cs" />
     <Compile Include="Actions\TimerUpdate\LongBreak\LongBreakTimerUpdateActionTests.cs" />
     <Compile Include="Actions\TimerUpdate\LongBreak\LongBreakTimerUpdateAction_TimerFinishedTests.cs" />
     <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateActionTests.cs" />
@@ -80,7 +95,10 @@
     <Compile Include="Mocks\MockCounter.cs" />
     <Compile Include="Mocks\MockEnabled.cs" />
     <Compile Include="Mocks\MockMainForm.cs" />
+    <Compile Include="Mocks\MockVisibility.cs" />
     <Compile Include="Mocks\MockWriteColor.cs" />
+    <Compile Include="Mocks\MockWriteText.cs" />
+    <Compile Include="Periods\PomodoroPeriodTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

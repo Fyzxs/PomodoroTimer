@@ -192,4 +192,9 @@ namespace PomodoroTimerDesktopTests.Mocks
         public void AssertShowAlertInvokedWith(Text message) => _showAlert.AssertInvokedWith(message);
         public void AssertToTopInvoked() => _toTop.AssertInvoked();
     }
+
+    public partial class MockMainForm
+    {
+        public void AssertShowAlertInvokedWithCustom(Action<Text> assertion) => _showAlert.AssertCustom(assertion);
+    }
 }

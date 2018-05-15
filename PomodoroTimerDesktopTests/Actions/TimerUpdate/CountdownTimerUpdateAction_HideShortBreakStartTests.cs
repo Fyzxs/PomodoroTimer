@@ -3,28 +3,30 @@ using PomodoroTimerDesktopTests.Mocks;
 using PomodoroTimerLib.Library.Timers;
 using PomodorTimerDesktop.Actions.TimerUpdate;
 
-namespace PomodoroTimerDesktopTests.Actions.TimerUpdate
-{
+namespace PomodoroTimerDesktopTests.Actions.TimerUpdate {
     [TestClass]
-    public class CountdownTimerUpdateAction_FinishedForeColorTests
+    public class CountdownTimerUpdateAction_HideShortBreakStartTests
     {
+
         [TestMethod, TestCategory("unit")]
-        public void ShouldColorForeColor()
+        public void ShouldAct()
         {
-            //Arrange
+            // Arrange
             TimerProgress timeProgress = TimerProgress.Last;
-            MockWriteColor mockWriteColor = new MockWriteColor.Builder().Write().Build();
-            MockMainForm mockMainForm = new MockMainForm.Builder().CountDownForeColorWriter(mockWriteColor).Build();
+            MockVisibility mockVisibility = new MockVisibility.Builder().Hide().Build();
+            MockMainForm mockMainForm = new MockMainForm.Builder().ShortBreakStartVisibility(mockVisibility).Build();
             MockCountdownTime mockCountdownTime = new MockCountdownTime.Builder().Build();
             MockCountdownTimerUpdateAction nextAction = new MockCountdownTimerUpdateAction.Builder().Act().Build();
-            CountdownTimerUpdateAction_FinishedForeColor subject = new CountdownTimerUpdateAction_FinishedForeColor(nextAction);
 
-            //Act
+            CountdownTimerUpdateAction_HideShortBreakStart subject = new CountdownTimerUpdateAction_HideShortBreakStart(nextAction);
+
+            // Act
             subject.Act(mockMainForm, mockCountdownTime, timeProgress);
 
-            //Assert
-            //mockWriteColor.AssertWriteInvokedWithCustom();//TODO: Make sure Red is written
+            // Assert
             nextAction.AssertActInvokedWith(mockMainForm, mockCountdownTime, timeProgress);
+            mockMainForm.ShortBreakStartVisibility();
+            mockVisibility.AssertHideInvoked();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate
                         new NoOpUpdateAction()))))
         { }
 
-        public CountdownTimerUpdateAction_TimerRunning(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
+        private CountdownTimerUpdateAction_TimerRunning(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more) => _nextAction.Act(mainForm, countdownTime, more);
     }

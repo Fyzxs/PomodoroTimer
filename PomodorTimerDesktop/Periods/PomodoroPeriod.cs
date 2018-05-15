@@ -7,12 +7,12 @@ namespace PomodorTimerDesktop.Periods
 {
     internal abstract class PomodoroPeriod : IPomodoroPeriod
     {
-        private readonly CountdownTimer _timer;
+        private readonly ICountdownTimer _timer;
         private readonly ICountdownTimerStartAction _startAction;
         private readonly ICountdownTimerUpdateAction _updateAction;
         private IMainForm _mainForm;
 
-        protected PomodoroPeriod(CountdownTimer timer, ICountdownTimerStartAction startAction, ICountdownTimerUpdateAction updateAction)
+        protected PomodoroPeriod(ICountdownTimer timer, ICountdownTimerStartAction startAction, ICountdownTimerUpdateAction updateAction)
         {
             _timer = timer;
             _startAction = startAction;
