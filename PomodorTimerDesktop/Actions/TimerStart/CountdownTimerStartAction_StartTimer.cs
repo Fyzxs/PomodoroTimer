@@ -8,7 +8,7 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         public CountdownTimerStartAction_StartTimer(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
-        public void Act(IMainForm form, CountdownTimer timer)
+        public void Act(IMainForm form, ICountdownTimer timer)
         {
             timer.Start();
             _nextAction.Act(form, timer);

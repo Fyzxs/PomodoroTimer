@@ -8,13 +8,13 @@ namespace PomodoroTimerDesktopTests.Mocks
 {
     public partial class MockCountdownTimerStartAction : ICountdownTimerStartAction
     {
-        private MockMethodWithParam<Tuple<IMainForm, CountdownTimer>> _act;
+        private MockMethodWithParam<Tuple<IMainForm, ICountdownTimer>> _act;
         private MockCountdownTimerStartAction() { }
-        public void Act(IMainForm form, CountdownTimer timer) => _act.Invoke(new Tuple<IMainForm, CountdownTimer>(form, timer));
+        public void Act(IMainForm form, ICountdownTimer timer) => _act.Invoke(new Tuple<IMainForm, ICountdownTimer>(form, timer));
 
         public class Builder
         {
-            private readonly MockMethodWithParam<Tuple<IMainForm, CountdownTimer>> _act = new MockMethodWithParam<Tuple<IMainForm, CountdownTimer>>("MockCountdownTimerStartAction#Act");
+            private readonly MockMethodWithParam<Tuple<IMainForm, ICountdownTimer>> _act = new MockMethodWithParam<Tuple<IMainForm, ICountdownTimer>>("MockCountdownTimerStartAction#Act");
 
             public MockCountdownTimerStartAction Build()
             {
@@ -34,6 +34,6 @@ namespace PomodoroTimerDesktopTests.Mocks
             }
         }
 
-        public void AssertActInvokedWith(IMainForm form, CountdownTimer timer) => _act.AssertInvokedWith(new Tuple<IMainForm, CountdownTimer>(form, timer));
+        public void AssertActInvokedWith(IMainForm form, ICountdownTimer timer) => _act.AssertInvokedWith(new Tuple<IMainForm, ICountdownTimer>(form, timer));
     }
 }

@@ -14,6 +14,6 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         private LongBreakTimerStartAction(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
-        public void Act(IMainForm form, CountdownTimer timer) => _nextAction.Act(form, timer);
+        public void Act(IMainForm form, ICountdownTimer timer) => _nextAction.Act(form, timer);
     }
 }

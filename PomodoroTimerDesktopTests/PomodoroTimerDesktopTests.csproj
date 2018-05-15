@@ -48,16 +48,24 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_DisableShortBreakStartTests.cs" />
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_StartTimerTests.cs" />
+    <Compile Include="Actions\TimerStart\LongBreakTimerStartActionTests.cs" />
+    <Compile Include="Actions\TimerStart\ShortBreakTimerStartActionTests.cs" />
+    <Compile Include="Actions\TimerStart\SessionTimerStartActionTests.cs" />
+    <Compile Include="Mocks\MockCountdownTimer.cs" />
     <Compile Include="Mocks\MockCountdownTimerStartAction.cs" />
+    <Compile Include="Mocks\MockEnabled.cs" />
+    <Compile Include="Mocks\MockMainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InterfaceMocksStandard\InterfaceMocksStandard.csproj">
-      <Project>{c8f8d22b-8724-4e1e-9450-8a0943806ff9}</Project>
-      <Name>InterfaceMocksStandard</Name>
+    <ProjectReference Include="..\InterfaceMocks\InterfaceMocks.csproj">
+      <Project>{d572eefd-c971-4458-b436-0c7f1b429583}</Project>
+      <Name>InterfaceMocks</Name>
     </ProjectReference>
     <ProjectReference Include="..\PomodoroTimerLib\PomodoroTimerLib.csproj">
       <Project>{D6585BE6-30FF-439F-B52C-DB35284292C6}</Project>

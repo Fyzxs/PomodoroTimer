@@ -4,6 +4,6 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 {
     internal interface ICountdownTimerStartAction
     {
-        void Act(IMainForm form, CountdownTimer timer);
+        void Act(IMainForm form, ICountdownTimer timer);
     }
 }

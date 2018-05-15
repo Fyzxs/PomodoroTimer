@@ -8,7 +8,7 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         public CountdownTimerStartAction_DisableLongBreakStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
-        public void Act(IMainForm form, CountdownTimer timer)
+        public void Act(IMainForm form, ICountdownTimer timer)
         {
             form.LongBreakStartEnabled().Disable();
             _nextAction.Act(form, timer);

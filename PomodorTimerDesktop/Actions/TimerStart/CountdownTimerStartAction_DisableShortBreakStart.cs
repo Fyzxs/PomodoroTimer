@@ -8,10 +8,11 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         public CountdownTimerStartAction_DisableShortBreakStart(ICountdownTimerStartAction nextAction) => _nextAction = nextAction;
 
-        public void Act(IMainForm form, CountdownTimer timer)
+        public void Act(IMainForm form, ICountdownTimer timer)
         {
             form.ShortBreakStartEnabled().Disable();
             _nextAction.Act(form, timer);
         }
     }
+
 }
