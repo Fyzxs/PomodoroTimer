@@ -2,7 +2,7 @@
 
 namespace PomodorTimerDesktop.Wrappers
 {
-    public sealed class VisibilityOf : IVisibility
+    internal sealed class VisibilityOf : IVisibility
     {
         private readonly Control _control;
 

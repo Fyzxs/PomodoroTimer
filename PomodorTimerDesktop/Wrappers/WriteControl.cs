@@ -2,7 +2,7 @@
 using PomodoroTimerLib.Library.Primitives.Texts;
 
 namespace PomodorTimerDesktop.Wrappers {
-    public sealed class WriteControl : IWriteText
+    internal sealed class WriteControl : IWriteText
     {
         private readonly Control _control;
 

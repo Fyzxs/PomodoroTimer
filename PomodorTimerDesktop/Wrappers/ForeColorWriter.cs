@@ -2,7 +2,7 @@
 
 namespace PomodorTimerDesktop.Wrappers
 {
-    public sealed class ForeColorWriter : IWriteColor
+    internal sealed class ForeColorWriter : IWriteColor
     {
         private readonly Control _control;
 

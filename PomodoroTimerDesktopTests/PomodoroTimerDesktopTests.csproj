@@ -87,7 +87,6 @@
     <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_TimerFinishedTests.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateActionTests.cs" />
     <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_TimerFinishedTests.cs" />
-    <Compile Include="CreateTheTestsHere.cs" />
     <Compile Include="Mocks\MockCountdownTime.cs" />
     <Compile Include="Mocks\MockCountdownTimer.cs" />
     <Compile Include="Mocks\MockCountdownTimerStartAction.cs" />

@@ -5,7 +5,7 @@ using PomodoroTimerLib.Library.Timers.Delegates;
 
 namespace PomodoroTimerLib.Library.Timers
 {
-    public sealed class CountdownTimer : ICountdownTimer
+    public abstract class CountdownTimer : ICountdownTimer
     {
         private readonly ITimerBookEnd _timerBookEnd;
         private readonly ICountdownTracker _countdownTracker;
@@ -13,12 +13,12 @@ namespace PomodoroTimerLib.Library.Timers
 
         public event CountdownTimerEvent TimerEvent;
 
-        public CountdownTimer(TimeInterval interval, TimeInterval precision) : this(
+        protected CountdownTimer(TimeInterval interval, TimeInterval precision) : this(
             new CountdownTimerElapsedAction(),
             new TimerBookEnd(precision, TimerAutoReset.Repeat),
             new CountdownTracker(interval, precision))
         { }
-        private CountdownTimer(ICountdownTimerElapsedAction countdownTimerElapsedAction, ITimerBookEnd timerBookEnd, ICountdownTracker countdownTracker)
+        protected CountdownTimer(ICountdownTimerElapsedAction countdownTimerElapsedAction, ITimerBookEnd timerBookEnd, ICountdownTracker countdownTracker)
         {
             _timerBookEnd = timerBookEnd;
             _countdownTracker = countdownTracker;
