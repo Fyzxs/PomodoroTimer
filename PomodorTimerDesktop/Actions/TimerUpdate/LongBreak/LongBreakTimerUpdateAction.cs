@@ -1,7 +1,8 @@
 ﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate.LongBreak {
+namespace PomodorTimerDesktop.Actions.TimerUpdate.LongBreak
+{
     internal sealed class LongBreakTimerUpdateAction : ICountdownTimerUpdateAction
     {
 
@@ -13,7 +14,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.LongBreak {
             new CountdownTimerUpdateAction_TimerRunning())
         { }
 
-        public LongBreakTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
+        private LongBreakTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
         {
             _finished = finished;
             _running = running;
@@ -25,4 +26,5 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.LongBreak {
             _running.Act(mainForm, countdownTime, more);
         }
     }
+
 }

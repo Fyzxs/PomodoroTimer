@@ -16,7 +16,7 @@ namespace PomodoroTimerLibTests.Library.Time.Interval
             Minutes subject = new Minutes(500);
 
             //Act
-            Minutes actual = subject;
+            TimeSpan actual = subject;
 
             //Assert
             actual.Should().Be(TimeSpan.FromMinutes(500));

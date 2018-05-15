@@ -11,7 +11,7 @@ namespace PomodoroTimerDesktopTests.Mocks
         private MockMethodWithResponse<IVisibility> _sessionStartVisibility;
         private MockMethodWithResponse<IVisibility> _shortBreakStartVisibility;
         private MockMethodWithResponse<IVisibility> _longBreakStartVisibility;
-        private MockMethodWithResponse<IEnabled> _sessionStartEnable;
+        private MockMethodWithResponse<IEnabled> _sessionStartEnabled;
         private MockMethodWithResponse<IEnabled> _shortBreakStartEnabled;
         private MockMethodWithResponse<IEnabled> _longBreakStartEnabled;
         private MockMethodWithResponse<IWriteText> _countDownTextWriter;
@@ -22,7 +22,7 @@ namespace PomodoroTimerDesktopTests.Mocks
         public IVisibility SessionStartVisibility() => _sessionStartVisibility.Invoke();
         public IVisibility ShortBreakStartVisibility() => _shortBreakStartVisibility.Invoke();
         public IVisibility LongBreakStartVisibility() => _longBreakStartVisibility.Invoke();
-        public IEnabled SessionStartEnable() => _sessionStartEnable.Invoke();
+        public IEnabled SessionStartEnabled() => _sessionStartEnabled.Invoke();
         public IEnabled ShortBreakStartEnabled() => _shortBreakStartEnabled.Invoke();
         public IEnabled LongBreakStartEnabled() => _longBreakStartEnabled.Invoke();
         public IWriteText CountDownTextWriter() => _countDownTextWriter.Invoke();
@@ -35,7 +35,7 @@ namespace PomodoroTimerDesktopTests.Mocks
             private readonly MockMethodWithResponse<IVisibility> _sessionStartVisibility = new MockMethodWithResponse<IVisibility>("MockMainForm#SessionStartVisibility");
             private readonly MockMethodWithResponse<IVisibility> _shortBreakStartVisibility = new MockMethodWithResponse<IVisibility>("MockMainForm#ShortBreakStartVisibility");
             private readonly MockMethodWithResponse<IVisibility> _longBreakStartVisibility = new MockMethodWithResponse<IVisibility>("MockMainForm#LongBreakStartVisibility");
-            private readonly MockMethodWithResponse<IEnabled> _sessionStartEnable = new MockMethodWithResponse<IEnabled>("MockMainForm#SessionStartEnable");
+            private readonly MockMethodWithResponse<IEnabled> _sessionStartEnabled = new MockMethodWithResponse<IEnabled>("MockMainForm#SessionStartEnabled");
             private readonly MockMethodWithResponse<IEnabled> _shortBreakStartEnabled = new MockMethodWithResponse<IEnabled>("MockMainForm#ShortBreakStartEnabled");
             private readonly MockMethodWithResponse<IEnabled> _longBreakStartEnabled = new MockMethodWithResponse<IEnabled>("MockMainForm#LongBreakStartEnabled");
             private readonly MockMethodWithResponse<IWriteText> _countDownTextWriter = new MockMethodWithResponse<IWriteText>("MockMainForm#CountDownTextWriter");
@@ -50,7 +50,7 @@ namespace PomodoroTimerDesktopTests.Mocks
                     _sessionStartVisibility = _sessionStartVisibility,
                     _shortBreakStartVisibility = _shortBreakStartVisibility,
                     _longBreakStartVisibility = _longBreakStartVisibility,
-                    _sessionStartEnable = _sessionStartEnable,
+                    _sessionStartEnabled = _sessionStartEnabled,
                     _shortBreakStartEnabled = _shortBreakStartEnabled,
                     _longBreakStartEnabled = _longBreakStartEnabled,
                     _countDownTextWriter = _countDownTextWriter,
@@ -96,15 +96,15 @@ namespace PomodoroTimerDesktopTests.Mocks
                 return this;
             }
 
-            public Builder SessionStartEnable(params IEnabled[] responseValues)
+            public Builder SessionStartEnabled(params IEnabled[] responseValues)
             {
-                _sessionStartEnable.UpdateInvocation(responseValues);
+                _sessionStartEnabled.UpdateInvocation(responseValues);
                 return this;
             }
 
-            public Builder SessionStartEnable(params Func<IEnabled>[] responseValues)
+            public Builder SessionStartEnabled(params Func<IEnabled>[] responseValues)
             {
-                _sessionStartEnable.UpdateInvocation(responseValues);
+                _sessionStartEnabled.UpdateInvocation(responseValues);
                 return this;
             }
 
@@ -184,7 +184,7 @@ namespace PomodoroTimerDesktopTests.Mocks
         public void AssertSessionStartVisibilityInvoked() => _sessionStartVisibility.AssertInvoked();
         public void AssertShortBreakStartVisibilityInvoked() => _shortBreakStartVisibility.AssertInvoked();
         public void AssertLongBreakStartVisibilityInvoked() => _longBreakStartVisibility.AssertInvoked();
-        public void AssertSessionStartEnableInvoked() => _sessionStartEnable.AssertInvoked();
+        public void AssertSessionStartEnabledInvoked() => _sessionStartEnabled.AssertInvoked();
         public void AssertShortBreakStartEnabledInvoked() => _shortBreakStartEnabled.AssertInvoked();
         public void AssertLongBreakStartEnabledInvoked() => _longBreakStartEnabled.AssertInvoked();
         public void AssertCountDownTextWriterInvoked() => _countDownTextWriter.AssertInvoked();

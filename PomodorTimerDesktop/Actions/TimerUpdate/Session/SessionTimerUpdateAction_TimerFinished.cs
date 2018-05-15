@@ -13,11 +13,11 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
                     new CountdownTimerUpdateAction_RemainingTime(
                         new CountdownTimerUpdateAction_ShowSessionOver(
                             new SessionTimerUpdateAction_ShowNextStart(
-                            new CountdownTimerUpdateAction_EnableLongBreakStart(
-                                new CountdownTimerUpdateAction_EnableShortBreakStart(
-                                    new CountdownTimerUpdateAction_HideSessionStart(
-                                            new CountdownTimerUpdateAction_FormToTop(
-                                                new NoOpUpdateAction()))))))))))
+                                new CountdownTimerUpdateAction_EnableLongBreakStart(
+                                    new CountdownTimerUpdateAction_EnableShortBreakStart(
+                                        new CountdownTimerUpdateAction_HideSessionStart(
+                                                new CountdownTimerUpdateAction_FormToTop(
+                                                    new NoOpUpdateAction()))))))))))
         { }
 
         public SessionTimerUpdateAction_TimerFinished(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;

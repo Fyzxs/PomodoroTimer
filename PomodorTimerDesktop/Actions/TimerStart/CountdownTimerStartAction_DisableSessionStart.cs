@@ -10,7 +10,7 @@ namespace PomodorTimerDesktop.Actions.TimerStart
 
         public void Act(IMainForm form, ICountdownTimer timer)
         {
-            form.SessionStartEnable().Disable();
+            form.SessionStartEnabled().Disable();
             _nextAction.Act(form, timer);
         }
     }

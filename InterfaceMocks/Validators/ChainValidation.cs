@@ -52,7 +52,11 @@ namespace InterfaceMocks.Validators
             }
         }
 
-        private object NextLink(object obj, ValidationInfo info) => GetAllFields(obj.GetType()).First(t => info.NameMatches(t.Name)).GetValue(obj);
+        private object NextLink(object obj, ValidationInfo info)
+        {
+            IEnumerable<FieldInfo> fieldInfos = GetAllFields(obj.GetType());
+            return fieldInfos.First(t => info.NameMatches(t.Name)).GetValue(obj);
+        }
 
         private IEnumerable<FieldInfo> GetAllFields(Type t)
         {

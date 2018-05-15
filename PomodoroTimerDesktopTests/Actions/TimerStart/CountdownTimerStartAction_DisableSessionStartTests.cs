@@ -3,7 +3,8 @@ using PomodoroTimerDesktopTests.Mocks;
 using PomodoroTimerLibTests.Mocks;
 using PomodorTimerDesktop.Actions.TimerStart;
 
-namespace PomodoroTimerDesktopTests.Actions.TimerStart {
+namespace PomodoroTimerDesktopTests.Actions.TimerStart
+{
     [TestClass]
     public class CountdownTimerStartAction_DisableSessionStartTests
     {
@@ -12,7 +13,7 @@ namespace PomodoroTimerDesktopTests.Actions.TimerStart {
         {
             //Arrange
             MockEnabled mockEnabled = new MockEnabled.Builder().Disable().Build();
-            MockMainForm mockMainForm = new MockMainForm.Builder().SessionStartEnable(mockEnabled).Build();
+            MockMainForm mockMainForm = new MockMainForm.Builder().SessionStartEnabled(mockEnabled).Build();
             MockCountdownTimer mockCountdownTimer = new MockCountdownTimer.Builder().Build();
             MockCountdownTimerStartAction nextAction = new MockCountdownTimerStartAction.Builder().Act().Build();
             CountdownTimerStartAction_DisableSessionStart subject = new CountdownTimerStartAction_DisableSessionStart(nextAction);
@@ -23,7 +24,7 @@ namespace PomodoroTimerDesktopTests.Actions.TimerStart {
 
             //Assert
             mockEnabled.Disable();
-            mockMainForm.AssertSessionStartEnableInvoked();
+            mockMainForm.AssertSessionStartEnabledInvoked();
             nextAction.AssertActInvokedWith(mockMainForm, mockCountdownTimer);
         }
     }

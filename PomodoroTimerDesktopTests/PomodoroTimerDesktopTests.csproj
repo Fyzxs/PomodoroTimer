@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\..\..\..\..\Users\Quinn\.nuget\packages\fluentassertions\5.3.0\lib\netstandard2.0\FluentAssertions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -46,17 +49,38 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_DisableLongBreakStartTests.cs" />
+    <Compile Include="Actions\TimerStart\CountdownTimerStartAction_DisableSessionStartTests.cs" />
     <Compile Include="Actions\TimerStart\CountdownTimerStartAction_DisableShortBreakStartTests.cs" />
     <Compile Include="Actions\TimerStart\CountdownTimerStartAction_StartTimerTests.cs" />
     <Compile Include="Actions\TimerStart\LongBreakTimerStartActionTests.cs" />
     <Compile Include="Actions\TimerStart\ShortBreakTimerStartActionTests.cs" />
     <Compile Include="Actions\TimerStart\SessionTimerStartActionTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_DefaultForeColorTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_EnableLongBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_EnableSessionStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_EnableShortBreakStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FinishedForeColorTests.cs" />
+    <Compile Include="Actions\TimerUpdate\CountdownTimerUpdateAction_FormToTopTests.cs" />
+    <Compile Include="Actions\TimerUpdate\LongBreak\LongBreakTimerUpdateActionTests.cs" />
+    <Compile Include="Actions\TimerUpdate\LongBreak\LongBreakTimerUpdateAction_TimerFinishedTests.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateActionTests.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_ShowNextStartTests.cs" />
+    <Compile Include="Actions\TimerUpdate\Session\SessionTimerUpdateAction_TimerFinishedTests.cs" />
+    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateActionTests.cs" />
+    <Compile Include="Actions\TimerUpdate\ShortBreak\ShortBreakTimerUpdateAction_TimerFinishedTests.cs" />
+    <Compile Include="CreateTheTestsHere.cs" />
+    <Compile Include="Mocks\MockCountdownTime.cs" />
     <Compile Include="Mocks\MockCountdownTimer.cs" />
     <Compile Include="Mocks\MockCountdownTimerStartAction.cs" />
+    <Compile Include="Mocks\MockCountdownTimerUpdateAction.cs" />
+    <Compile Include="Mocks\MockCounter.cs" />
     <Compile Include="Mocks\MockEnabled.cs" />
     <Compile Include="Mocks\MockMainForm.cs" />
+    <Compile Include="Mocks\MockWriteColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +100,7 @@
       <Name>PomodoroTimerDesktop</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

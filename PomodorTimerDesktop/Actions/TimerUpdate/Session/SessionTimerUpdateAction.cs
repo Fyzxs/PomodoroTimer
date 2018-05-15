@@ -13,7 +13,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.Session
             new CountdownTimerUpdateAction_TimerRunning())
         { }
 
-        public SessionTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
+        private SessionTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
         {
             _finished = finished;
             _running = running;

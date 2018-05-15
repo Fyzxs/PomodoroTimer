@@ -1,7 +1,8 @@
 ﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate {
+namespace PomodorTimerDesktop.Actions.TimerUpdate
+{
     internal sealed class CountdownTimerUpdateAction_EnableSessionStart : ICountdownTimerUpdateAction
     {
         private readonly ICountdownTimerUpdateAction _nextAction;
@@ -10,7 +11,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate {
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {
-            mainForm.SessionStartEnable().Enable();
+            mainForm.SessionStartEnabled().Enable();
             _nextAction.Act(mainForm, countdownTime, more);
         }
     }

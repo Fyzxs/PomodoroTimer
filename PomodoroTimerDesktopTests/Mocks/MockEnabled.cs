@@ -1,14 +1,19 @@
-﻿using PomodorTimerDesktop.Wrappers;
+﻿using InterfaceMocks;
+using PomodorTimerDesktop.Wrappers;
+using System;
 
-namespace PomodoroTimerDesktopTests.Mocks {
-    public partial class MockEnabled : IEnabled {
+namespace PomodoroTimerDesktopTests.Mocks
+{
+    public partial class MockEnabled : IEnabled
+    {
         private MockMethod _enable;
         private MockMethod _disable;
         private MockEnabled() { }
         public void Enable() => _enable.Invoke();
         public void Disable() => _disable.Invoke();
 
-        public class Builder {
+        public class Builder
+        {
             private readonly MockMethod _enable = new MockMethod("MockEnabled#Enable");
             private readonly MockMethod _disable = new MockMethod("MockEnabled#Disable");
 

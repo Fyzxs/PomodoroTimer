@@ -1,7 +1,8 @@
 ﻿using PomodoroTimerLib.Library.Counters;
 using PomodoroTimerLib.Library.Timers;
 
-namespace PomodorTimerDesktop.Actions.TimerUpdate.ShortBreak {
+namespace PomodorTimerDesktop.Actions.TimerUpdate.ShortBreak
+{
     internal sealed class ShortBreakTimerUpdateAction : ICountdownTimerUpdateAction
     {
         private readonly ICountdownTimerUpdateAction _finished;
@@ -12,7 +13,7 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.ShortBreak {
             new CountdownTimerUpdateAction_TimerRunning())
         { }
 
-        public ShortBreakTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
+        private ShortBreakTimerUpdateAction(ICountdownTimerUpdateAction finished, ICountdownTimerUpdateAction running)
         {
             _finished = finished;
             _running = running;

@@ -13,14 +13,9 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate
 
         public void Act(IMainForm mainForm, ICountdownTime countdownTime, TimerProgress more)
         {
-            ForeColor(mainForm, more);
+            Color.Into(mainForm.CountDownForeColorWriter());
 
             _nextAction.Act(mainForm, countdownTime, more);
-        }
-
-        private static void ForeColor(IMainForm mainForm, TimerProgress more)
-        {
-            Color.Into(mainForm.CountDownForeColorWriter());
         }
     }
 }

@@ -37,7 +37,7 @@ namespace PomodorTimerDesktop
 
         public IVisibility LongBreakStartVisibility() => new VisibilityOf(btnStartLongBreak);
 
-        public IEnabled SessionStartEnable() => new EnabledOf(btnStartSession);
+        public IEnabled SessionStartEnabled() => new EnabledOf(btnStartSession);
 
         public IEnabled ShortBreakStartEnabled() => new EnabledOf(btnStartShortBreak);
 
@@ -66,7 +66,7 @@ namespace PomodorTimerDesktop
         IVisibility SessionStartVisibility();
         IVisibility ShortBreakStartVisibility();
         IVisibility LongBreakStartVisibility();
-        IEnabled SessionStartEnable();
+        IEnabled SessionStartEnabled();
         IEnabled ShortBreakStartEnabled();
         IEnabled LongBreakStartEnabled();
         IWriteText CountDownTextWriter();

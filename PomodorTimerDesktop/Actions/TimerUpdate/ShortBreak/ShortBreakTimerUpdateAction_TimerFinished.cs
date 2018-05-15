@@ -15,8 +15,8 @@ namespace PomodorTimerDesktop.Actions.TimerUpdate.ShortBreak
                                 new CountdownTimerUpdateAction_ShowSessionStart(
                                     new CountdownTimerUpdateAction_HideShortBreakStart(
                                         new CountdownTimerUpdateAction_ShowShortBreakOver(
-                                        new CountdownTimerUpdateAction_FormToTop(
-                                            new NoOpUpdateAction())))))))))
+                                            new CountdownTimerUpdateAction_FormToTop(
+                                                new NoOpUpdateAction())))))))))
         { }
 
         public ShortBreakTimerUpdateAction_TimerFinished(ICountdownTimerUpdateAction nextAction) => _nextAction = nextAction;
