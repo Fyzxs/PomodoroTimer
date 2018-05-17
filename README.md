@@ -1,9 +1,12 @@
 # PomodoroTimer
 A MicroObject Pomodoro Timer
+![Build Status](https://fyzxs.visualstudio.com/_apis/public/build/definitions/de1edd3b-7499-47c7-937f-39d941f079bd/2/badge)](https://fyzxs.visualstudio.com/Github%20Builds/_build/index?definitionId=2)
+
+# How To Use
+From the Code: Run "PomodoroTimerDesktop"
 
 # InterfaceMocks
 This is a framework for fakes in unit tests. It's been pulled in from github.com/fyzxs/IMock repository. It's a Mock/Fake framework that evolved out of using MicroObjects. 
-
 
 # ConsolePomodoro
 This is my initial experimentation platform. It doesn't do the full thing.
